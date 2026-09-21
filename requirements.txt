@@ -1,0 +1,59 @@
+# Research Paper Answer Bot -- pinned dependencies
+#
+# Installed and verified in this milestone (PDF extraction + chunking + tests):
+#   pymupdf, python-dotenv, pytest, tiktoken
+#
+# Everything below that is not yet used by the code (embeddings, Zilliz,
+# reranking, Streamlit, ...) is pinned now so later milestones don't drift,
+# but is NOT required to run today's ingestion + tests. Install incrementally
+# with `pip install -r requirements.txt` when you reach that milestone, or
+# `pip install pymupdf python-dotenv pytest tiktoken --break-system-packages`
+# for just this milestone.
+
+# --- PDF extraction (Milestone 1 -- in use) --------------------------------
+pymupdf==1.28.2
+
+# --- Config / env (Milestone 1 -- in use) ----------------------------------
+python-dotenv==1.2.3
+
+# --- Tokenization for chunk sizing (Milestone 1 -- optional backend) -------
+# Default tokenizer backend ("approx_word") needs no extra package. Set
+# TOKENIZER_BACKEND=tiktoken to use this for exact OpenAI token counts
+# (requires network access on first run to fetch the vocabulary file).
+tiktoken==0.14.0
+
+# --- Testing (Milestone 1 -- in use) ----------------------------------------
+pytest==9.1.1
+
+# --- Embeddings (Milestone 3+) ----------------------------------------------
+sentence-transformers==3.3.1
+openai==1.58.1
+
+# --- Vector store: Zilliz Cloud Serverless (Milestone 2+) -------------------
+pymilvus==2.4.9
+# Pin marshmallow explicitly: pymilvus -> environs 9.5.0 breaks on newer
+# marshmallow releases that dropped the `__version_info__` attribute
+# environs still reads (AttributeError at import time otherwise).
+marshmallow==3.20.1
+
+# --- Sparse / hybrid retrieval (Milestone 5+) -------------------------------
+rank-bm25==0.2.2
+
+# --- Reranking (Milestone 5+) ------------------------------------------------
+# cross-encoder/ms-marco-MiniLM-L-6-v2 is loaded through sentence-transformers
+# (sentence_transformers.CrossEncoder); no separate package required.
+
+# --- Thin LangChain usage for text splitting / prompt composition only ------
+# (per project instructions: not used to hide ingestion/retrieval/ranking logic)
+langchain-text-splitters==0.3.4
+
+# --- App / UI (Milestone 8) --------------------------------------------------
+streamlit==1.40.2
+
+# --- General utilities -------------------------------------------------------
+# Floor-pinned rather than exact: numpy==1.26.4 has no wheel for Python 3.13+
+# (needs numpy>=2.1 there), and pinning exactly would break installs on newer
+# interpreters. A floor lets pip pick whatever wheel matches your Python.
+numpy>=1.26.4
+pandas>=2.2.3
+tqdm==4.67.1

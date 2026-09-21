@@ -1,0 +1,26 @@
+# Secrets -- never commit
+.env
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local caches / model downloads
+.cache/
+huggingface_cache/
+tiktoken_cache/
+
+# Logs and local scratch (evaluation results in artifacts/evaluation ARE tracked)
+*.log
