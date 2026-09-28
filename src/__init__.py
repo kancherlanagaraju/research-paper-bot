@@ -1,8 +1,13 @@
 """Research Paper Answer Bot -- source package.
 
-Modules are added incrementally, one capstone milestone at a time:
+Pipeline, in data-flow order:
 
-Milestone 1 (implemented): ``config``, ``ingestion``.
-Milestone 2+ (stubs for now): ``embeddings``, ``vector_store``, ``retrieval``,
-``rag``, ``evaluation``.
+* ``config``       -- settings from environment / ``.env``.
+* ``ingestion``    -- PDF extraction and per-page chunking.
+* ``embeddings``   -- open-source and OpenAI embedding backends.
+* ``vector_store`` -- Zilliz Cloud Serverless collections, idempotent upsert.
+* ``retrieval``    -- dense, hybrid (BM25 + dense) and reranked retrieval.
+* ``rag``          -- grounded generation with top-3 citations and abstention.
+* ``evaluation``   -- question set, metrics, configuration comparison.
+* ``app_support``  -- helpers for the Streamlit app (``app.py``).
 """

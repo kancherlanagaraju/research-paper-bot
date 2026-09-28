@@ -14,11 +14,17 @@ for the original brief.
 - [x] **Milestone 5 -- RAG generation (`src/rag.py`) with top-3 source citations and abstention, unit-tested with a stub LLM. No real LLM call made yet.**
 - [x] **Milestone 6 -- Evaluation harness (`src/evaluation.py`, `scripts/run_evaluation.py`): 21-question set, hit@k / MRR / latency for configs A-D, optional generation + LLM-judge metrics, automatic selection. Unit-tested with stubs; NOT yet run on real data, so no results or final selection exist yet.**
 - [x] **Milestone 7 -- Streamlit app (`app.py`): question box, answer with citations, top-3 source expanders, retrieval-mode selector, "insufficient evidence" warning, session history. Tested headless with a stubbed pipeline; not yet used against live services.**
-- [ ] Milestone 8 -- Full documentation, complete test suite, demo prep.
+- [x] **Milestone 8 -- Documentation (README, `docs/architecture.md` with data-flow diagram and requirement traceability, `.env.example`, `DEMO.md`), 106 unit tests plus opt-in live smoke tests.**
 
-Milestone 8 (final docs, complete tests, demo prep) is not started.
-Milestones 3-7 are unit-tested against fakes/stubs only; nothing beyond the
-OpenAI embedding call has been verified against live services.
+**Verification status:** all seven pipeline milestones are code-complete and
+unit-tested, but Milestones 3-7 are tested against fakes/stubs only. Nothing
+beyond the OpenAI embedding call has been run against live services (Zilliz,
+open-source model weights, an LLM), and no evaluation has been run, so there
+are no results and no selected configuration yet. See "Live verification"
+below for the exact steps to close that gap.
+
+Where to look: `docs/architecture.md` (diagram, retrieval configs,
+requirement traceability), `DEMO.md` (demo script), `.env.example` (all settings).
 
 ## Dataset
 
@@ -39,19 +45,18 @@ Five extractable, non-scanned, English-language PDFs under
 cd research-paper-bot
 python3 -m venv .venv && source .venv/bin/activate
 
-# Everything needed for Milestone 1 (ingestion + tests):
-pip install pymupdf==1.28.2 python-dotenv==1.2.3 pytest==9.1.1 tiktoken==0.14.0
-
-# Or the full pinned set for later milestones (heavier: sentence-transformers,
-# pymilvus, streamlit, ...):
+# Full pinned set (heavier: sentence-transformers, pymilvus, streamlit, ...):
 pip install -r requirements.txt
 
-cp .env.example .env   # fill in credentials as later milestones need them
+# Ingestion + most unit tests need far less:
+pip install pymupdf python-dotenv pytest tiktoken rank-bm25 numpy
+
+cp .env.example .env   # then fill in credentials
 ```
 
-No credentials are required for Milestone 1. `.env.example` documents every
-variable the full project will eventually need (Zilliz, OpenAI, retrieval,
-LLM) so nothing is a surprise later.
+Ingestion and the unit tests need no credentials. Indexing and retrieval
+need `ZILLIZ_URI` / `ZILLIZ_TOKEN`; OpenAI embeddings, generation and the
+LLM judge need `OPENAI_API_KEY`. Each is checked only when used.
 
 ## Commands
 
@@ -74,23 +79,44 @@ python scripts/index_documents.py --embedding-backend both  # both, into separat
 python scripts/index_documents.py --rebuild                 # intentionally drop + recreate first
 ```
 
+Ask a question from the command line, or launch the app:
+
+```bash
+python -m src.rag "How many attention heads does the base Transformer use?" [mode]
+streamlit run app.py
+```
+
+Compare the four retrieval configurations and pick one:
+
+```bash
+python scripts/run_evaluation.py                              # retrieval metrics only
+python scripts/run_evaluation.py --with-generation --judge    # also abstention, citations, LLM-judged quality
+```
+
+Results land in `artifacts/evaluation/` (`results.json`, `results.csv`,
+`summary.md`). The app then defaults to the winning configuration.
+
 Run the unit tests:
 
 ```bash
 python -m pytest -v
 ```
 
-Last run (confirmed on the user's own machine, real Zilliz connection):
-**61 passed, 0 failed** (28 ingestion + 11 embeddings + 12 vector store + 10
-retrieval).
+**106 unit tests pass** (28 ingestion, 11 embeddings, 12 vector store, 22
+retrieval, 12 RAG, 13 evaluation, 8 app), all against fakes or stubs. Live
+smoke tests are skipped by default and run with
+`RUN_LIVE_TESTS=1 python -m pytest -m live -v`.
 
 Inspect things directly without the full CLI:
 
 ```bash
 python -m src.ingestion                      # ingestion summary for the configured dataset
 python -m src.embeddings                     # embeds one sample query with each configured backend
-python -m src.retrieval "your question here" # top-3 hits for dense_oss and dense_openai
+python -m src.retrieval "your question here" # top-3 hits for all four retrieval modes
 ```
+
+Retrieval modes: `dense_oss` (A), `dense_openai` (B), `hybrid` (C),
+`hybrid_reranked` (D). See `docs/architecture.md`.
 
 ## Configuration
 
@@ -102,17 +128,22 @@ and `ZILLIZ_URI`/`ZILLIZ_TOKEN` are only checked when a component that
 actually uses them is called (`AppConfig.require_openai_key()` /
 `AppConfig.require_zilliz_credentials()`), with an actionable error message.
 
-Key ingestion settings:
+Key settings (see `.env.example` for all of them):
 
 | Variable | Default | Meaning |
 |---|---|---|
+| `HYBRID_DENSE_BACKEND` | `oss` | Dense side of hybrid modes: `oss` or `openai`. Set to the evaluation winner. |
+| `FUSION_METHOD` | `rrf` | `rrf` or `weighted`; weights via `FUSION_WEIGHT_DENSE` / `FUSION_WEIGHT_SPARSE`. |
+| `HYBRID_CANDIDATE_K` / `RERANK_TOP_K` | `20` / `5` | Candidates per ranker before fusion or reranking / final results for mode D. |
+| `RERANKER_MODEL` | `cross-encoder/ms-marco-MiniLM-L-6-v2` | Cross-encoder for mode D. |
+| `LLM_MODEL` | `gpt-4o-mini` | Generation model (`LLM_PROVIDER=openai` only). |
 | `DATASET_DIR` | `./pinnacle_capstone_data` | Where PDFs are discovered (recursive). |
 | `CHUNK_SIZE_TOKENS` | `800` | Target chunk size. |
 | `CHUNK_OVERLAP_TOKENS` | `120` | Overlap between consecutive chunks on the same page. |
 | `INGESTION_VERSION` | `v1` | Baked into every chunk ID; bump to force new IDs on a rebuild. |
 | `TOKENIZER_BACKEND` | `approx_word` | `approx_word` (offline, deterministic) or `tiktoken` (exact GPT tokens, needs network on first use). |
 
-## Known limitations (found while building Milestone 2)
+## Known limitations (sandbox network blocks found during development)
 
 Development happens inside a sandboxed environment whose outbound network
 access is restricted to an allowlist of domains. This surfaced three
@@ -194,39 +225,42 @@ and share the output; I'll fix anything that comes up.
    here, with real-cluster verification deferred to an environment with
    network access to Zilliz -- confirmed.
 
-## Open item before Milestone 4
+## Live verification (the remaining open item)
 
-**Real end-to-end verification of indexing + retrieval.** Run the full
-pipeline, then try a real query against it:
+Everything below the OpenAI embedding call has only been exercised against
+fakes. To verify for real, from a machine with normal internet access:
 
 ```bash
-python scripts/index_documents.py                 # or --embedding-backend both
+python scripts/index_documents.py --embedding-backend both   # ingest, embed, upsert both collections
 python -m src.retrieval "What is attention in a transformer model?"
+RUN_LIVE_TESTS=1 python -m pytest -m live -v                 # all four modes + a real RAG answer + abstention
+python scripts/run_evaluation.py --with-generation --judge   # the real comparison and selection
+streamlit run app.py
 ```
 
-The second command prints the top-3 hits (score, title, page, text preview)
-for both `dense_oss` and `dense_openai` modes. Share the output -- that's
-the one thing that couldn't be verified from the sandboxed environment this
-was developed in (see "Known limitations" above). Everything else needed
-for Milestones 2-3 is done and unit-tested (61 tests passing).
+What could still fail, and where: the Zilliz write and the BM25 corpus fetch
+(`client.query` with a `chunk_id != ""` filter and pagination) have only run
+against a fake client; the open-source embedding and cross-encoder weights
+have never been downloaded; the LLM has never been called, so citation
+format and abstention behaviour are untested against a real model.
 
 ## Project structure
 
 ```
-src/config.py        Central configuration (implemented)
-src/ingestion.py      PDF extraction + chunking (implemented)
-src/embeddings.py     Open-source + OpenAI embedding backends (implemented)
-src/vector_store.py   Zilliz Cloud Serverless client, idempotent upsert, rebuild (implemented)
-src/retrieval.py      Dense cosine, hybrid BM25/RRF, and cross-encoder reranked retrieval (implemented)
-src/rag.py            Generation with top-3 citations + abstention (implemented)
-src/evaluation.py     Evaluation harness: metrics, config comparison, selection (implemented)
-scripts/index_documents.py   Full ingest -> embed -> upsert CLI (implemented)
-scripts/run_evaluation.py    Evaluation CLI: `python scripts/run_evaluation.py [--with-generation] [--judge]`
-app.py                Streamlit app: `streamlit run app.py` (implemented)
-tests/test_ingestion.py      28 unit tests (Milestone 1)
-tests/test_embeddings.py     11 unit tests (Milestone 2)
-tests/test_vector_store.py   12 unit tests (Milestone 2)
-tests/test_retrieval.py      10 unit tests (Milestone 3)
-artifacts/evaluation/        questions.json (eval set); results.json/csv + summary.md appear after a real run
-docs/architecture.md         Architecture + requirement-traceability table (skeleton)
+src/config.py         Central configuration
+src/ingestion.py      PDF extraction + per-page chunking
+src/embeddings.py     Open-source + OpenAI embedding backends
+src/vector_store.py   Zilliz Cloud Serverless client, idempotent upsert, rebuild
+src/retrieval.py      Dense cosine, hybrid BM25/RRF, cross-encoder reranked retrieval
+src/rag.py            Grounded generation with top-3 citations + abstention
+src/evaluation.py     Metrics, configuration comparison, selection
+src/app_support.py    Framework-free helpers for the app
+app.py                Streamlit app
+scripts/index_documents.py   Ingest -> embed -> upsert CLI
+scripts/run_evaluation.py    Evaluation CLI
+tests/                106 unit tests + tests/test_live.py (opt-in live smoke tests)
+artifacts/            ingestion_manifest.json; evaluation/questions.json (results appear after a run)
+docs/architecture.md  Data-flow diagram, retrieval configs, requirement traceability
+DEMO.md               Demo walkthrough and sample questions
+.env.example          Every setting, documented
 ```

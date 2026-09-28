@@ -1,11 +1,11 @@
 """Centralized configuration for the Research Paper Answer Bot.
 
 Settings are loaded from environment variables (via a local ``.env`` file if
-present) with sensible defaults. Fields needed only by later milestones
+present) with sensible defaults. Fields needed only by later pipeline stages
 (embeddings, Zilliz vector store, reranking, LLM generation) are declared
 here too, so the full configuration surface is visible in one place -- but
 they are validated lazily, only when a component that actually needs them is
-used. This means ingestion works today with zero credentials configured.
+used. This means ingestion works with zero credentials configured.
 """
 from __future__ import annotations
 
@@ -86,7 +86,7 @@ class AppConfig:
     dataset_dir: Path = _DEFAULT_DATASET_DIR
     artifacts_dir: Path = _DEFAULT_ARTIFACTS_DIR
 
-    # --- Ingestion / chunking (Milestone 1 -- implemented) -------------- #
+    # --- Ingestion / chunking ------------------------------------------- #
     ingestion_version: str = "v1"
     chunk_size_tokens: int = 800
     chunk_overlap_tokens: int = 120
@@ -96,17 +96,17 @@ class AppConfig:
     tokenizer_backend: str = "approx_word"
     tokenizer_encoding_name: str = "cl100k_base"
 
-    # --- Vector store: Zilliz Cloud Serverless (Milestone 2+) ----------- #
+    # --- Vector store: Zilliz Cloud Serverless -------------------------- #
     zilliz_uri: Optional[str] = None
     zilliz_token: Optional[str] = None
     zilliz_collection_prefix: str = "research_paper_bot"
 
-    # --- Embedding models (Milestone 3+) -------------------------------- #
+    # --- Embedding models ------------------------------------------------ #
     embedding_model_oss: str = "BAAI/bge-small-en-v1.5"
     embedding_model_openai: str = "text-embedding-3-small"
     openai_api_key: Optional[str] = None
 
-    # --- Retrieval (Milestone 5+) ---------------------------------------- #
+    # --- Retrieval --------------------------------------------------------- #
     top_k_dense: int = 5
     hybrid_candidate_k: int = 20
     rerank_top_k: int = 5
@@ -116,7 +116,7 @@ class AppConfig:
     fusion_weight_sparse: float = 0.5
     reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
-    # --- LLM / generation (Milestone 6+) ---------------------------------- #
+    # --- LLM / generation ------------------------------------------------- #
     llm_provider: str = "openai"
     llm_model: str = "gpt-4o-mini"
 
@@ -157,10 +157,10 @@ class AppConfig:
         return cfg
 
     # ------------------------------------------------------------------ #
-    # Validation. Only the settings the CURRENT milestone needs are
-    # validated eagerly (in from_env). Settings for later milestones are
-    # validated on demand via the require_* helpers below, with an
-    # actionable error message, instead of failing at import time.
+    # Validation. Only the ingestion settings are validated eagerly
+    # (in from_env). Everything else is validated on demand via the
+    # require_* helpers below, with an actionable error message, instead of
+    # failing at import time.
     # ------------------------------------------------------------------ #
     def validate_ingestion(self) -> None:
         if self.chunk_overlap_tokens >= self.chunk_size_tokens:
