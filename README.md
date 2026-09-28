@@ -12,12 +12,12 @@ for the original brief.
 - [x] **Milestone 3 -- Dense cosine retrieval, per embedding model (`dense_oss` / `dense_openai`), unit-tested. Not yet run against a real populated collection -- see "Open item" below.**
 - [x] **Milestone 4 -- Hybrid (dense + BM25, RRF/weighted fusion) retrieval (`hybrid`) and cross-encoder reranking (`hybrid_reranked`), unit-tested. Not yet run against a real populated collection or with real model weights -- see "Open item" below.**
 - [x] **Milestone 5 -- RAG generation (`src/rag.py`) with top-3 source citations and abstention, unit-tested with a stub LLM. No real LLM call made yet.**
-- [ ] Milestone 6 -- Evaluation across all retrieval configurations + final selection.
+- [x] **Milestone 6 -- Evaluation harness (`src/evaluation.py`, `scripts/run_evaluation.py`): 21-question set, hit@k / MRR / latency for configs A-D, optional generation + LLM-judge metrics, automatic selection. Unit-tested with stubs; NOT yet run on real data, so no results or final selection exist yet.**
 - [ ] Milestone 7 -- Streamlit application (stretch goal).
 - [ ] Milestone 8 -- Full documentation, complete test suite, demo prep.
 
-Milestones 6-8 are stubbed (see `src/*.py` docstrings) but not implemented.
-Milestones 3-5 are unit-tested against fakes/stubs only; nothing beyond the
+Milestones 7-8 are stubbed (see `src/*.py` docstrings) but not implemented.
+Milestones 3-6 are unit-tested against fakes/stubs only; nothing beyond the
 OpenAI embedding call has been verified against live services.
 
 ## Dataset
@@ -219,14 +219,14 @@ src/embeddings.py     Open-source + OpenAI embedding backends (implemented)
 src/vector_store.py   Zilliz Cloud Serverless client, idempotent upsert, rebuild (implemented)
 src/retrieval.py      Dense cosine, hybrid BM25/RRF, and cross-encoder reranked retrieval (implemented)
 src/rag.py            Generation with top-3 citations + abstention (implemented)
-src/evaluation.py     Evaluation harness (stub -- Milestone 6)
+src/evaluation.py     Evaluation harness: metrics, config comparison, selection (implemented)
 scripts/index_documents.py   Full ingest -> embed -> upsert CLI (implemented)
-scripts/run_evaluation.py    Evaluation CLI (stub)
+scripts/run_evaluation.py    Evaluation CLI: `python scripts/run_evaluation.py [--with-generation] [--judge]`
 app.py                Streamlit app (stub -- Milestone 7)
 tests/test_ingestion.py      28 unit tests (Milestone 1)
 tests/test_embeddings.py     11 unit tests (Milestone 2)
 tests/test_vector_store.py   12 unit tests (Milestone 2)
 tests/test_retrieval.py      10 unit tests (Milestone 3)
-artifacts/evaluation/        Evaluation outputs land here (empty for now)
+artifacts/evaluation/        questions.json (eval set); results.json/csv + summary.md appear after a real run
 docs/architecture.md         Architecture + requirement-traceability table (skeleton)
 ```

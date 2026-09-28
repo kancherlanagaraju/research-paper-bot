@@ -22,7 +22,7 @@ Serverless vector store -> retrieval experiments (dense / hybrid / reranked)
 | Retrieval strategy comparison | `src/retrieval.py` | Dense cosine (configs A/B) implemented + unit-tested; hybrid (C) and reranked (D) implemented + unit-tested; not yet run live |
 | RAG pipeline + LLM | `src/rag.py` (`answer_question`, OpenAI chat, temperature 0) | Implemented; unit-tested with stub LLM/retrieval (tests/test_rag.py). No live LLM call yet. |
 | Source citation (top 3) | `src/rag.py` (`RagAnswer.sources`, inline `[Title, p. N]` citations, abstention) | Implemented; unit-tested. |
-| Evaluation | `src/evaluation.py`, `artifacts/evaluation/` | TBD (Milestone 6) |
+| Evaluation | `src/evaluation.py`, `scripts/run_evaluation.py`, `artifacts/evaluation/questions.json` | Harness + 21-question set (grounded against the ingested text) implemented and unit-tested. Real run and final configuration selection pending. |
 | Streamlit app | `app.py` | TBD (Milestone 7) |
 
 ## Data flow diagram (to be completed)

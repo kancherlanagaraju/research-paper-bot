@@ -1,0 +1,245 @@
+[
+  {
+    "id": "q01",
+    "category": "factual",
+    "question": "What are the two sub-layers in each encoder layer of the Transformer?",
+    "expected_docs": [
+      "attention_paper.pdf"
+    ],
+    "evidence_terms": [
+      "Each layer has two sub-layers"
+    ],
+    "reference_answer": "Each encoder layer has a multi-head self-attention sub-layer and a position-wise fully connected feed-forward sub-layer."
+  },
+  {
+    "id": "q02",
+    "category": "factual",
+    "question": "How many parallel attention heads does the base Transformer use?",
+    "expected_docs": [
+      "attention_paper.pdf"
+    ],
+    "evidence_terms": [
+      "parallel attention layers"
+    ],
+    "reference_answer": "It uses h = 8 parallel attention heads."
+  },
+  {
+    "id": "q03",
+    "category": "factual",
+    "question": "Why are the dot products scaled by the square root of the key dimension in Transformer attention?",
+    "expected_docs": [
+      "attention_paper.pdf"
+    ],
+    "evidence_terms": [
+      "extremely small gradients"
+    ],
+    "reference_answer": "For large dk the dot products grow large and push the softmax into regions with extremely small gradients, so they are scaled by 1/sqrt(dk)."
+  },
+  {
+    "id": "q04",
+    "category": "factual",
+    "question": "How does the Transformer inject information about token position?",
+    "expected_docs": [
+      "attention_paper.pdf"
+    ],
+    "evidence_terms": [
+      "sinusoidal"
+    ],
+    "reference_answer": "It adds sinusoidal positional encodings to the input embeddings."
+  },
+  {
+    "id": "q05",
+    "category": "factual",
+    "question": "What BLEU score did the big Transformer reach on WMT 2014 English-to-German translation?",
+    "expected_docs": [
+      "attention_paper.pdf"
+    ],
+    "evidence_terms": [
+      "28.4"
+    ],
+    "reference_answer": "28.4 BLEU."
+  },
+  {
+    "id": "q06",
+    "category": "factual",
+    "question": "Which InstructGPT model size did labelers prefer over the 175B GPT-3?",
+    "expected_docs": [
+      "instructgpt.pdf"
+    ],
+    "evidence_terms": [
+      "1.3B"
+    ],
+    "reference_answer": "Outputs from the 1.3B parameter InstructGPT model were preferred over the 175B GPT-3."
+  },
+  {
+    "id": "q07",
+    "category": "factual",
+    "question": "What are the steps of the RLHF method used to train InstructGPT?",
+    "expected_docs": [
+      "instructgpt.pdf"
+    ],
+    "evidence_terms": [
+      "reward model"
+    ],
+    "reference_answer": "Supervised fine-tuning on demonstrations, training a reward model on human comparisons, then optimizing the policy against it with PPO."
+  },
+  {
+    "id": "q08",
+    "category": "factual",
+    "question": "What is the PPO-ptx variant in InstructGPT?",
+    "expected_docs": [
+      "instructgpt.pdf"
+    ],
+    "evidence_terms": [
+      "PPO-ptx"
+    ],
+    "reference_answer": "PPO mixed with pretraining gradients to reduce performance regressions on public NLP datasets."
+  },
+  {
+    "id": "q09",
+    "category": "factual",
+    "question": "How did GPT-4 perform on the simulated bar exam?",
+    "expected_docs": [
+      "gpt4.pdf"
+    ],
+    "evidence_terms": [
+      "bar exam"
+    ],
+    "reference_answer": "GPT-4 scored around the top 10% of test takers, versus the bottom 10% for GPT-3.5."
+  },
+  {
+    "id": "q10",
+    "category": "factual",
+    "question": "What does the GPT-4 report say about predictable scaling?",
+    "expected_docs": [
+      "gpt4.pdf"
+    ],
+    "evidence_terms": [
+      "predictable"
+    ],
+    "reference_answer": "Infrastructure and methods were built to behave predictably across scales, so final GPT-4 performance could be predicted from much smaller models."
+  },
+  {
+    "id": "q11",
+    "category": "factual",
+    "question": "What limitations of GPT-4 does the technical report describe?",
+    "expected_docs": [
+      "gpt4.pdf"
+    ],
+    "evidence_terms": [
+      "hallucinat"
+    ],
+    "reference_answer": "It is not fully reliable: it hallucinates facts, makes reasoning errors and has a limited context window."
+  },
+  {
+    "id": "q12",
+    "category": "factual",
+    "question": "Which attention mechanisms does Mistral 7B use to speed up inference?",
+    "expected_docs": [
+      "mistral_paper.pdf"
+    ],
+    "evidence_terms": [
+      "sliding window attention",
+      "grouped-query attention"
+    ],
+    "reference_answer": "Grouped-query attention for faster inference and sliding window attention to handle longer sequences at lower cost."
+  },
+  {
+    "id": "q13",
+    "category": "factual",
+    "question": "What is the sliding window size in Mistral 7B?",
+    "expected_docs": [
+      "mistral_paper.pdf"
+    ],
+    "evidence_terms": [
+      "4096"
+    ],
+    "reference_answer": "The window size W is 4096 tokens."
+  },
+  {
+    "id": "q14",
+    "category": "factual",
+    "question": "How does Mistral 7B compare with Llama 2 13B?",
+    "expected_docs": [
+      "mistral_paper.pdf"
+    ],
+    "evidence_terms": [
+      "Llama 2 13B"
+    ],
+    "reference_answer": "Mistral 7B outperforms Llama 2 13B across all evaluated benchmarks."
+  },
+  {
+    "id": "q15",
+    "category": "factual",
+    "question": "What model sizes make up the Gemini family?",
+    "expected_docs": [
+      "gemini_paper.pdf"
+    ],
+    "evidence_terms": [
+      "consists of Ultra, Pro, and Nano"
+    ],
+    "reference_answer": "Ultra, Pro and Nano."
+  },
+  {
+    "id": "q16",
+    "category": "factual",
+    "question": "How did Gemini Ultra perform on the MMLU benchmark?",
+    "expected_docs": [
+      "gemini_paper.pdf"
+    ],
+    "evidence_terms": [
+      "90.04%"
+    ],
+    "reference_answer": "Gemini Ultra reached state-of-the-art on MMLU, reported above human-expert performance."
+  },
+  {
+    "id": "q17",
+    "category": "cross-paper",
+    "question": "Which of the papers discuss hallucination or truthfulness of language models?",
+    "expected_docs": [
+      "gpt4.pdf",
+      "instructgpt.pdf"
+    ],
+    "evidence_terms": [
+      "hallucinat"
+    ],
+    "reference_answer": "The GPT-4 report and the InstructGPT paper both discuss hallucination/truthfulness."
+  },
+  {
+    "id": "q18",
+    "category": "cross-paper",
+    "question": "Which papers describe training with human feedback or preferences?",
+    "expected_docs": [
+      "instructgpt.pdf",
+      "gpt4.pdf"
+    ],
+    "evidence_terms": [
+      "human feedback"
+    ],
+    "reference_answer": "InstructGPT introduces RLHF; the GPT-4 report describes RLHF post-training."
+  },
+  {
+    "id": "q19",
+    "category": "unanswerable",
+    "question": "What is the capital of France?",
+    "expected_docs": [],
+    "evidence_terms": [],
+    "reference_answer": "Not covered by the papers; the system should abstain."
+  },
+  {
+    "id": "q20",
+    "category": "unanswerable",
+    "question": "What does the DeepSeek-R1 paper report about reinforcement learning for reasoning?",
+    "expected_docs": [],
+    "evidence_terms": [],
+    "reference_answer": "That paper is not in the corpus; the system should abstain."
+  },
+  {
+    "id": "q21",
+    "category": "unanswerable",
+    "question": "Which team won the 2022 FIFA World Cup?",
+    "expected_docs": [],
+    "evidence_terms": [],
+    "reference_answer": "Not covered by the papers; the system should abstain."
+  }
+]
