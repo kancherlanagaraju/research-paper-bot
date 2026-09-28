@@ -10,14 +10,15 @@ for the original brief.
 - [x] **Milestone 1 -- Repository & dataset assessment, PDF extraction, metadata-preserving chunking, unit tests.**
 - [x] **Milestone 2 -- Embeddings (open-source + OpenAI) and Zilliz Cloud Serverless vector store, idempotent upsert, rebuild command.**
 - [x] **Milestone 3 -- Dense cosine retrieval, per embedding model (`dense_oss` / `dense_openai`), unit-tested. Not yet run against a real populated collection -- see "Open item" below.**
-- [x] Milestone 4 -- Hybrid (dense + BM25) retrieval (mode `hybrid`) and cross-encoder reranking (mode `hybrid_reranked`); unit-tested only, not yet run live.
+- [x] **Milestone 4 -- Hybrid (dense + BM25, RRF/weighted fusion) retrieval (`hybrid`) and cross-encoder reranking (`hybrid_reranked`), unit-tested. Not yet run against a real populated collection or with real model weights -- see "Open item" below.**
 - [ ] Milestone 5 -- RAG generation with citations and abstention.
 - [ ] Milestone 6 -- Evaluation across all retrieval configurations + final selection.
 - [ ] Milestone 7 -- Streamlit application (stretch goal).
 - [ ] Milestone 8 -- Full documentation, complete test suite, demo prep.
 
-Milestones 3-8 are stubbed (see `src/*.py` docstrings) but not implemented.
-Nothing beyond Milestones 1-2 has been run, claimed to work, or tested.
+Milestones 5-8 are stubbed (see `src/*.py` docstrings) but not implemented.
+Milestones 3-4 are unit-tested against fakes/stubs only; nothing beyond the
+OpenAI embedding call has been verified against live services.
 
 ## Dataset
 
