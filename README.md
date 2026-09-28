@@ -13,11 +13,11 @@ for the original brief.
 - [x] **Milestone 4 -- Hybrid (dense + BM25, RRF/weighted fusion) retrieval (`hybrid`) and cross-encoder reranking (`hybrid_reranked`), unit-tested. Not yet run against a real populated collection or with real model weights -- see "Open item" below.**
 - [x] **Milestone 5 -- RAG generation (`src/rag.py`) with top-3 source citations and abstention, unit-tested with a stub LLM. No real LLM call made yet.**
 - [x] **Milestone 6 -- Evaluation harness (`src/evaluation.py`, `scripts/run_evaluation.py`): 21-question set, hit@k / MRR / latency for configs A-D, optional generation + LLM-judge metrics, automatic selection. Unit-tested with stubs; NOT yet run on real data, so no results or final selection exist yet.**
-- [ ] Milestone 7 -- Streamlit application (stretch goal).
+- [x] **Milestone 7 -- Streamlit app (`app.py`): question box, answer with citations, top-3 source expanders, retrieval-mode selector, "insufficient evidence" warning, session history. Tested headless with a stubbed pipeline; not yet used against live services.**
 - [ ] Milestone 8 -- Full documentation, complete test suite, demo prep.
 
-Milestones 7-8 are stubbed (see `src/*.py` docstrings) but not implemented.
-Milestones 3-6 are unit-tested against fakes/stubs only; nothing beyond the
+Milestone 8 (final docs, complete tests, demo prep) is not started.
+Milestones 3-7 are unit-tested against fakes/stubs only; nothing beyond the
 OpenAI embedding call has been verified against live services.
 
 ## Dataset
@@ -222,7 +222,7 @@ src/rag.py            Generation with top-3 citations + abstention (implemented)
 src/evaluation.py     Evaluation harness: metrics, config comparison, selection (implemented)
 scripts/index_documents.py   Full ingest -> embed -> upsert CLI (implemented)
 scripts/run_evaluation.py    Evaluation CLI: `python scripts/run_evaluation.py [--with-generation] [--judge]`
-app.py                Streamlit app (stub -- Milestone 7)
+app.py                Streamlit app: `streamlit run app.py` (implemented)
 tests/test_ingestion.py      28 unit tests (Milestone 1)
 tests/test_embeddings.py     11 unit tests (Milestone 2)
 tests/test_vector_store.py   12 unit tests (Milestone 2)
