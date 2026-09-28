@@ -110,6 +110,7 @@ class AppConfig:
     top_k_dense: int = 5
     hybrid_candidate_k: int = 20
     rerank_top_k: int = 5
+    hybrid_dense_backend: str = "oss"  # dense side of hybrid: "oss" | "openai"
     fusion_method: str = "rrf"  # "rrf" | "weighted"
     fusion_weight_dense: float = 0.5
     fusion_weight_sparse: float = 0.5
@@ -143,6 +144,7 @@ class AppConfig:
             top_k_dense=_get_int("TOP_K_DENSE", 5),
             hybrid_candidate_k=_get_int("HYBRID_CANDIDATE_K", 20),
             rerank_top_k=_get_int("RERANK_TOP_K", 5),
+            hybrid_dense_backend=_get_str("HYBRID_DENSE_BACKEND", "oss"),
             fusion_method=_get_str("FUSION_METHOD", "rrf"),
             fusion_weight_dense=_get_float("FUSION_WEIGHT_DENSE", 0.5),
             fusion_weight_sparse=_get_float("FUSION_WEIGHT_SPARSE", 0.5),
