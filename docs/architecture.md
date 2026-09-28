@@ -19,9 +19,9 @@ Serverless vector store -> retrieval experiments (dense / hybrid / reranked)
 | PDF loading & indexing | `src/ingestion.py`, `src/embeddings.py`, `src/vector_store.py`, `scripts/index_documents.py` | 28+11+12 passing tests; live run: 95/95 chunks embedded via OpenAI and manifest written. Zilliz write pending real-cluster verification (see README "Known limitations"). |
 | Metadata preservation | `src/ingestion.py: ChunkRecord`, `src/vector_store.py` schema | Verified: title/filename/page/chunk_id/embedding_model/ingestion_version all present on every stored row. |
 | Embedding comparison | `src/embeddings.py` (`OSSEmbeddingBackend`, `OpenAIEmbeddingBackend`) | OpenAI backend live-verified (real API, 1536-dim). OSS backend implemented + unit-tested; live HF download blocked in this sandbox, pending verification. |
-| Retrieval strategy comparison | `src/retrieval.py` | Dense cosine (configs A/B) implemented + unit-tested; hybrid/reranked (C/D) TBD (Milestone 4) |
-| RAG pipeline + LLM | `src/rag.py` | TBD (Milestone 5) |
-| Source citation (top 3) | `src/rag.py` | TBD (Milestone 5) |
+| Retrieval strategy comparison | `src/retrieval.py` | Dense cosine (configs A/B) implemented + unit-tested; hybrid (C) and reranked (D) implemented + unit-tested; not yet run live |
+| RAG pipeline + LLM | `src/rag.py` (`answer_question`, OpenAI chat, temperature 0) | Implemented; unit-tested with stub LLM/retrieval (tests/test_rag.py). No live LLM call yet. |
+| Source citation (top 3) | `src/rag.py` (`RagAnswer.sources`, inline `[Title, p. N]` citations, abstention) | Implemented; unit-tested. |
 | Evaluation | `src/evaluation.py`, `artifacts/evaluation/` | TBD (Milestone 6) |
 | Streamlit app | `app.py` | TBD (Milestone 7) |
 
