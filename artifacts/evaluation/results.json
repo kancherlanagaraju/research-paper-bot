@@ -1,0 +1,1238 @@
+{
+  "report": {
+    "top_k": 5,
+    "n_questions": 21,
+    "n_answerable": 18,
+    "modes_run": [
+      "dense_oss",
+      "hybrid",
+      "hybrid_reranked"
+    ],
+    "errors": {},
+    "best_dense_backend": "oss",
+    "selected_mode": "hybrid_reranked",
+    "summaries": {
+      "dense_oss": {
+        "n": 18,
+        "hit_at_k": 0.9444444444444444,
+        "mrr": 0.7916666666666666,
+        "mean_latency_s": 2.020934018444071,
+        "hit_at_k_by_category": {
+          "cross-paper": 1.0,
+          "factual": 0.9375
+        }
+      },
+      "hybrid": {
+        "n": 18,
+        "hit_at_k": 0.9444444444444444,
+        "mrr": 0.8148148148148148,
+        "mean_latency_s": 1.7328055507775086,
+        "hit_at_k_by_category": {
+          "cross-paper": 1.0,
+          "factual": 0.9375
+        }
+      },
+      "hybrid_reranked": {
+        "n": 18,
+        "hit_at_k": 0.9444444444444444,
+        "mrr": 0.8518518518518519,
+        "mean_latency_s": 2.362732835667177,
+        "hit_at_k_by_category": {
+          "cross-paper": 1.0,
+          "factual": 0.9375
+        }
+      }
+    }
+  },
+  "retrieval": [
+    {
+      "mode": "dense_oss",
+      "question_id": "q01",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 7.081961666997813,
+      "retrieved": [
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p8",
+        "attention_paper.pdf#p6",
+        "attention_paper.pdf#p9"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q02",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.5148144999984652,
+      "retrieved": [
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p9",
+        "attention_paper.pdf#p4",
+        "attention_paper.pdf#p2"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q03",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 2.05689454199819,
+      "retrieved": [
+        "attention_paper.pdf#p4",
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p9",
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p6"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q04",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.5,
+      "retrieval_latency_s": 1.5740125410011387,
+      "retrieved": [
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p9",
+        "mistral_paper.pdf#p3",
+        "attention_paper.pdf#p10",
+        "attention_paper.pdf#p6"
+      ],
+      "relevance": [
+        false,
+        true,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q05",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.6349193750029372,
+      "retrieved": [
+        "attention_paper.pdf#p8",
+        "gemini_paper.pdf#p10",
+        "attention_paper.pdf#p10",
+        "attention_paper.pdf#p9",
+        "gemini_paper.pdf#p24"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q06",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.5109998749976512,
+      "retrieved": [
+        "instructgpt.pdf#p11",
+        "instructgpt.pdf#p4",
+        "instructgpt.pdf#p12",
+        "instructgpt.pdf#p7",
+        "instructgpt.pdf#p3"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q07",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.5,
+      "retrieval_latency_s": 1.5820317910001904,
+      "retrieved": [
+        "instructgpt.pdf#p7",
+        "instructgpt.pdf#p3",
+        "gemini_paper.pdf#p30",
+        "instructgpt.pdf#p4",
+        "instructgpt.pdf#p1"
+      ],
+      "relevance": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q08",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.5716021249972982,
+      "retrieved": [
+        "instructgpt.pdf#p12",
+        "instructgpt.pdf#p11",
+        "instructgpt.pdf#p2",
+        "instructgpt.pdf#p13",
+        "instructgpt.pdf#p4"
+      ],
+      "relevance": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q09",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.7618273750013032,
+      "retrieved": [
+        "gpt4.pdf#p1",
+        "gpt4.pdf#p6",
+        "gpt4.pdf#p10",
+        "gpt4.pdf#p7",
+        "gpt4.pdf#p2"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q10",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.9015308329981053,
+      "retrieved": [
+        "gpt4.pdf#p2",
+        "gpt4.pdf#p3",
+        "gpt4.pdf#p10",
+        "gpt4.pdf#p4",
+        "gpt4.pdf#p1"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q11",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.8545567500004836,
+      "retrieved": [
+        "gpt4.pdf#p10",
+        "gpt4.pdf#p2",
+        "gpt4.pdf#p14",
+        "gpt4.pdf#p3",
+        "gpt4.pdf#p1"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q12",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.8381615420003072,
+      "retrieved": [
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p5",
+        "attention_paper.pdf#p4"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q13",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.5,
+      "retrieval_latency_s": 2.0492523329994583,
+      "retrieved": [
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p5",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p6"
+      ],
+      "relevance": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q14",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.905518874998961,
+      "retrieved": [
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p5",
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p6"
+      ],
+      "relevance": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q15",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.25,
+      "retrieval_latency_s": 1.7411479580005107,
+      "retrieved": [
+        "gemini_paper.pdf#p4",
+        "gemini_paper.pdf#p3",
+        "gemini_paper.pdf#p39",
+        "gemini_paper.pdf#p1",
+        "gemini_paper.pdf#p40"
+      ],
+      "relevance": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q16",
+      "category": "factual",
+      "hit": 0.0,
+      "rr": 0.0,
+      "retrieval_latency_s": 1.6179907500008994,
+      "retrieved": [
+        "gemini_paper.pdf#p40",
+        "gemini_paper.pdf#p14",
+        "gemini_paper.pdf#p5",
+        "gemini_paper.pdf#p7",
+        "gemini_paper.pdf#p4"
+      ],
+      "relevance": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q17",
+      "category": "cross-paper",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.6388671669992618,
+      "retrieved": [
+        "instructgpt.pdf#p10",
+        "gemini_paper.pdf#p11",
+        "gpt4.pdf#p10",
+        "attention_paper.pdf#p9",
+        "instructgpt.pdf#p17"
+      ],
+      "relevance": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q18",
+      "category": "cross-paper",
+      "hit": 1.0,
+      "rr": 0.5,
+      "retrieval_latency_s": 1.5407223330003035,
+      "retrieved": [
+        "gemini_paper.pdf#p21",
+        "instructgpt.pdf#p1",
+        "instructgpt.pdf#p4",
+        "instructgpt.pdf#p20",
+        "instructgpt.pdf#p18"
+      ],
+      "relevance": [
+        false,
+        true,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q01",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.6883797909977147,
+      "retrieved": [
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p6",
+        "attention_paper.pdf#p8",
+        "attention_paper.pdf#p10"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q02",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.6651312920002965,
+      "retrieved": [
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p9",
+        "attention_paper.pdf#p2",
+        "attention_paper.pdf#p4",
+        "attention_paper.pdf#p7"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q03",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.7737452080000367,
+      "retrieved": [
+        "attention_paper.pdf#p4",
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p6",
+        "attention_paper.pdf#p9"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q04",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.3333333333333333,
+      "retrieval_latency_s": 1.6192136249992473,
+      "retrieved": [
+        "mistral_paper.pdf#p3",
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p6",
+        "attention_paper.pdf#p5",
+        "gemini_paper.pdf#p11"
+      ],
+      "relevance": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q05",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.592914541997743,
+      "retrieved": [
+        "attention_paper.pdf#p8",
+        "attention_paper.pdf#p10",
+        "gemini_paper.pdf#p10",
+        "attention_paper.pdf#p1",
+        "attention_paper.pdf#p9"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q06",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 2.1329398749985558,
+      "retrieved": [
+        "instructgpt.pdf#p11",
+        "instructgpt.pdf#p12",
+        "instructgpt.pdf#p4",
+        "instructgpt.pdf#p3",
+        "instructgpt.pdf#p2"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q07",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.562831749997713,
+      "retrieved": [
+        "instructgpt.pdf#p3",
+        "instructgpt.pdf#p4",
+        "instructgpt.pdf#p7",
+        "instructgpt.pdf#p2",
+        "instructgpt.pdf#p19"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q08",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.5795650829968508,
+      "retrieved": [
+        "instructgpt.pdf#p2",
+        "instructgpt.pdf#p13",
+        "instructgpt.pdf#p12",
+        "instructgpt.pdf#p4",
+        "instructgpt.pdf#p11"
+      ],
+      "relevance": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q09",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.684677000001102,
+      "retrieved": [
+        "gpt4.pdf#p1",
+        "gpt4.pdf#p6",
+        "gpt4.pdf#p10",
+        "gpt4.pdf#p4",
+        "gpt4.pdf#p5"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q10",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.6082849170015834,
+      "retrieved": [
+        "gpt4.pdf#p2",
+        "gpt4.pdf#p14",
+        "gpt4.pdf#p1",
+        "gpt4.pdf#p4",
+        "gpt4.pdf#p10"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q11",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.5,
+      "retrieval_latency_s": 2.227349500000855,
+      "retrieved": [
+        "gpt4.pdf#p2",
+        "gpt4.pdf#p10",
+        "gpt4.pdf#p1",
+        "gpt4.pdf#p9",
+        "gpt4.pdf#p14"
+      ],
+      "relevance": [
+        false,
+        true,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q12",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.951218541002163,
+      "retrieved": [
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p5",
+        "mistral_paper.pdf#p3"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q13",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 2.196068582998123,
+      "retrieved": [
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p3",
+        "mistral_paper.pdf#p5"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q14",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.641818708001665,
+      "retrieved": [
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p5",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p6"
+      ],
+      "relevance": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q15",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.5,
+      "retrieval_latency_s": 1.5648647910020372,
+      "retrieved": [
+        "gemini_paper.pdf#p4",
+        "gemini_paper.pdf#p1",
+        "gemini_paper.pdf#p3",
+        "gemini_paper.pdf#p2",
+        "gemini_paper.pdf#p17"
+      ],
+      "relevance": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q16",
+      "category": "factual",
+      "hit": 0.0,
+      "rr": 0.0,
+      "retrieval_latency_s": 1.504695042000094,
+      "retrieved": [
+        "gemini_paper.pdf#p40",
+        "gemini_paper.pdf#p7",
+        "gemini_paper.pdf#p10",
+        "gemini_paper.pdf#p2",
+        "gemini_paper.pdf#p14"
+      ],
+      "relevance": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q17",
+      "category": "cross-paper",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.6244124580007337,
+      "retrieved": [
+        "instructgpt.pdf#p10",
+        "instructgpt.pdf#p13",
+        "instructgpt.pdf#p1",
+        "attention_paper.pdf#p12",
+        "instructgpt.pdf#p5"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q18",
+      "category": "cross-paper",
+      "hit": 1.0,
+      "rr": 0.3333333333333333,
+      "retrieval_latency_s": 1.57238920799864,
+      "retrieved": [
+        "gemini_paper.pdf#p21",
+        "instructgpt.pdf#p18",
+        "instructgpt.pdf#p4",
+        "instructgpt.pdf#p1",
+        "instructgpt.pdf#p20"
+      ],
+      "relevance": [
+        false,
+        false,
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q01",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 2.766533416001039,
+      "retrieved": [
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p8",
+        "attention_paper.pdf#p10",
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p2"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q02",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.5,
+      "retrieval_latency_s": 1.8131425000028685,
+      "retrieved": [
+        "attention_paper.pdf#p9",
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p1",
+        "attention_paper.pdf#p4"
+      ],
+      "relevance": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q03",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 2.1061487500010116,
+      "retrieved": [
+        "attention_paper.pdf#p4",
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p9",
+        "attention_paper.pdf#p1",
+        "attention_paper.pdf#p3"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q04",
+      "category": "factual",
+      "hit": 0.0,
+      "rr": 0.0,
+      "retrieval_latency_s": 2.5791892500019458,
+      "retrieved": [
+        "attention_paper.pdf#p3",
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p3",
+        "gemini_paper.pdf#p11",
+        "attention_paper.pdf#p8"
+      ],
+      "relevance": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q05",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.7048042909991636,
+      "retrieved": [
+        "attention_paper.pdf#p8",
+        "attention_paper.pdf#p1",
+        "attention_paper.pdf#p9",
+        "attention_paper.pdf#p10",
+        "gemini_paper.pdf#p10"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q06",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.9508720000012545,
+      "retrieved": [
+        "instructgpt.pdf#p11",
+        "instructgpt.pdf#p3",
+        "instructgpt.pdf#p13",
+        "instructgpt.pdf#p2",
+        "instructgpt.pdf#p14"
+      ],
+      "relevance": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q07",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.8134554579992255,
+      "retrieved": [
+        "instructgpt.pdf#p3",
+        "instructgpt.pdf#p7",
+        "instructgpt.pdf#p4",
+        "instructgpt.pdf#p19",
+        "gemini_paper.pdf#p21"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q08",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.9304773340008978,
+      "retrieved": [
+        "instructgpt.pdf#p2",
+        "instructgpt.pdf#p4",
+        "instructgpt.pdf#p12",
+        "instructgpt.pdf#p11",
+        "instructgpt.pdf#p9"
+      ],
+      "relevance": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q09",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.936752500001603,
+      "retrieved": [
+        "gpt4.pdf#p1",
+        "gpt4.pdf#p6",
+        "gpt4.pdf#p4",
+        "gpt4.pdf#p2",
+        "gpt4.pdf#p10"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q10",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 2.1810620830001426,
+      "retrieved": [
+        "gpt4.pdf#p2",
+        "gpt4.pdf#p1",
+        "gpt4.pdf#p14",
+        "gpt4.pdf#p4",
+        "gpt4.pdf#p10"
+      ],
+      "relevance": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q11",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.5,
+      "retrieval_latency_s": 1.9455254170025,
+      "retrieved": [
+        "gpt4.pdf#p2",
+        "gpt4.pdf#p1",
+        "gpt4.pdf#p10",
+        "gpt4.pdf#p14",
+        "gpt4.pdf#p4"
+      ],
+      "relevance": [
+        false,
+        true,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q12",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.9203337090002606,
+      "retrieved": [
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p6",
+        "mistral_paper.pdf#p5",
+        "mistral_paper.pdf#p4"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q13",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.98175162500047,
+      "retrieved": [
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p3",
+        "mistral_paper.pdf#p5"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q14",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 2.1257456249986717,
+      "retrieved": [
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p5",
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p6"
+      ],
+      "relevance": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q15",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 2.184642749998602,
+      "retrieved": [
+        "gemini_paper.pdf#p1",
+        "gemini_paper.pdf#p4",
+        "gemini_paper.pdf#p3",
+        "gemini_paper.pdf#p13",
+        "gemini_paper.pdf#p2"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q16",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.3333333333333333,
+      "retrieval_latency_s": 1.987622624998039,
+      "retrieved": [
+        "gemini_paper.pdf#p40",
+        "gemini_paper.pdf#p2",
+        "gemini_paper.pdf#p6",
+        "gemini_paper.pdf#p10",
+        "gemini_paper.pdf#p1"
+      ],
+      "relevance": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q17",
+      "category": "cross-paper",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 4.880331500000466,
+      "retrieved": [
+        "instructgpt.pdf#p10",
+        "gpt4.pdf#p10",
+        "instructgpt.pdf#p1",
+        "instructgpt.pdf#p3",
+        "instructgpt.pdf#p13"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q18",
+      "category": "cross-paper",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 4.720800209001027,
+      "retrieved": [
+        "instructgpt.pdf#p1",
+        "gemini_paper.pdf#p21",
+        "instructgpt.pdf#p18",
+        "instructgpt.pdf#p2",
+        "gemini_paper.pdf#p30"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ]
+    }
+  ],
+  "generation": []
+}
