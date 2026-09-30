@@ -5,41 +5,96 @@
     "n_answerable": 18,
     "modes_run": [
       "dense_oss",
+      "dense_openai",
       "hybrid",
       "hybrid_reranked"
     ],
     "errors": {},
-    "best_dense_backend": "oss",
-    "selected_mode": "hybrid_reranked",
+    "best_dense_backend": "openai",
+    "selected_mode": "hybrid",
     "summaries": {
       "dense_oss": {
         "n": 18,
         "hit_at_k": 0.9444444444444444,
         "mrr": 0.7916666666666666,
-        "mean_latency_s": 2.020934018444071,
+        "mean_latency_s": 3.171873511611087,
         "hit_at_k_by_category": {
           "cross-paper": 1.0,
           "factual": 0.9375
+        },
+        "generation": {
+          "n": 21,
+          "abstention_accuracy": 1.0,
+          "correct_abstain_rate": 1.0,
+          "false_abstain_rate": 0.0,
+          "citation_valid": 0.5555555555555556,
+          "citation_hit": 0.4444444444444444,
+          "correctness": 1.0,
+          "faithfulness": 1.0,
+          "mean_end_to_end_latency_s": 3.331387295619087
+        }
+      },
+      "dense_openai": {
+        "n": 18,
+        "hit_at_k": 0.9444444444444444,
+        "mrr": 0.8888888888888888,
+        "mean_latency_s": 0.5727302685000066,
+        "hit_at_k_by_category": {
+          "cross-paper": 1.0,
+          "factual": 0.9375
+        },
+        "generation": {
+          "n": 21,
+          "abstention_accuracy": 1.0,
+          "correct_abstain_rate": 1.0,
+          "false_abstain_rate": 0.0,
+          "citation_valid": 0.7222222222222222,
+          "citation_hit": 0.6666666666666666,
+          "correctness": 0.9444444444444444,
+          "faithfulness": 0.9611111111111111,
+          "mean_end_to_end_latency_s": 1.98862874999997
         }
       },
       "hybrid": {
         "n": 18,
         "hit_at_k": 0.9444444444444444,
-        "mrr": 0.8148148148148148,
-        "mean_latency_s": 1.7328055507775086,
+        "mrr": 0.9444444444444444,
+        "mean_latency_s": 0.4517117869999715,
         "hit_at_k_by_category": {
           "cross-paper": 1.0,
           "factual": 0.9375
+        },
+        "generation": {
+          "n": 21,
+          "abstention_accuracy": 1.0,
+          "correct_abstain_rate": 1.0,
+          "false_abstain_rate": 0.0,
+          "citation_valid": 0.6111111111111112,
+          "citation_hit": 0.6111111111111112,
+          "correctness": 0.9888888888888889,
+          "faithfulness": 0.9944444444444444,
+          "mean_end_to_end_latency_s": 1.86759301980956
         }
       },
       "hybrid_reranked": {
         "n": 18,
         "hit_at_k": 0.9444444444444444,
         "mrr": 0.8518518518518519,
-        "mean_latency_s": 2.362732835667177,
+        "mean_latency_s": 0.749703652722221,
         "hit_at_k_by_category": {
           "cross-paper": 1.0,
           "factual": 0.9375
+        },
+        "generation": {
+          "n": 21,
+          "abstention_accuracy": 1.0,
+          "correct_abstain_rate": 1.0,
+          "false_abstain_rate": 0.0,
+          "citation_valid": 0.5833333333333334,
+          "citation_hit": 0.5,
+          "correctness": 1.0,
+          "faithfulness": 1.0,
+          "mean_end_to_end_latency_s": 2.330847984095315
         }
       }
     }
@@ -51,7 +106,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 7.081961666997813,
+      "retrieval_latency_s": 7.724156582999967,
       "retrieved": [
         "attention_paper.pdf#p3",
         "attention_paper.pdf#p5",
@@ -73,7 +128,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.5148144999984652,
+      "retrieval_latency_s": 2.301689541000087,
       "retrieved": [
         "attention_paper.pdf#p5",
         "attention_paper.pdf#p3",
@@ -95,7 +150,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 2.05689454199819,
+      "retrieval_latency_s": 3.5629196669997327,
       "retrieved": [
         "attention_paper.pdf#p4",
         "attention_paper.pdf#p3",
@@ -117,7 +172,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 0.5,
-      "retrieval_latency_s": 1.5740125410011387,
+      "retrieval_latency_s": 3.3205015830003504,
       "retrieved": [
         "attention_paper.pdf#p3",
         "attention_paper.pdf#p9",
@@ -139,7 +194,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.6349193750029372,
+      "retrieval_latency_s": 5.325718749999851,
       "retrieved": [
         "attention_paper.pdf#p8",
         "gemini_paper.pdf#p10",
@@ -161,7 +216,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.5109998749976512,
+      "retrieval_latency_s": 5.425239541999872,
       "retrieved": [
         "instructgpt.pdf#p11",
         "instructgpt.pdf#p4",
@@ -183,7 +238,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 0.5,
-      "retrieval_latency_s": 1.5820317910001904,
+      "retrieval_latency_s": 6.0753349999999955,
       "retrieved": [
         "instructgpt.pdf#p7",
         "instructgpt.pdf#p3",
@@ -205,7 +260,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.5716021249972982,
+      "retrieval_latency_s": 2.008867083000041,
       "retrieved": [
         "instructgpt.pdf#p12",
         "instructgpt.pdf#p11",
@@ -227,7 +282,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.7618273750013032,
+      "retrieval_latency_s": 1.6577190000002702,
       "retrieved": [
         "gpt4.pdf#p1",
         "gpt4.pdf#p6",
@@ -249,7 +304,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.9015308329981053,
+      "retrieval_latency_s": 4.469658417000119,
       "retrieved": [
         "gpt4.pdf#p2",
         "gpt4.pdf#p3",
@@ -271,7 +326,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.8545567500004836,
+      "retrieval_latency_s": 3.584962875000201,
       "retrieved": [
         "gpt4.pdf#p10",
         "gpt4.pdf#p2",
@@ -293,7 +348,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.8381615420003072,
+      "retrieval_latency_s": 1.4592717089999496,
       "retrieved": [
         "mistral_paper.pdf#p2",
         "mistral_paper.pdf#p1",
@@ -315,7 +370,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 0.5,
-      "retrieval_latency_s": 2.0492523329994583,
+      "retrieval_latency_s": 1.5815859579997777,
       "retrieved": [
         "mistral_paper.pdf#p4",
         "mistral_paper.pdf#p2",
@@ -337,7 +392,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.905518874998961,
+      "retrieval_latency_s": 2.4698034589996496,
       "retrieved": [
         "mistral_paper.pdf#p4",
         "mistral_paper.pdf#p5",
@@ -359,7 +414,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 0.25,
-      "retrieval_latency_s": 1.7411479580005107,
+      "retrieval_latency_s": 1.5184514170000512,
       "retrieved": [
         "gemini_paper.pdf#p4",
         "gemini_paper.pdf#p3",
@@ -381,7 +436,7 @@
       "category": "factual",
       "hit": 0.0,
       "rr": 0.0,
-      "retrieval_latency_s": 1.6179907500008994,
+      "retrieval_latency_s": 1.4459240419996604,
       "retrieved": [
         "gemini_paper.pdf#p40",
         "gemini_paper.pdf#p14",
@@ -403,7 +458,7 @@
       "category": "cross-paper",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.6388671669992618,
+      "retrieval_latency_s": 1.5841597500002536,
       "retrieved": [
         "instructgpt.pdf#p10",
         "gemini_paper.pdf#p11",
@@ -425,7 +480,7 @@
       "category": "cross-paper",
       "hit": 1.0,
       "rr": 0.5,
-      "retrieval_latency_s": 1.5407223330003035,
+      "retrieval_latency_s": 1.5777588329997343,
       "retrieved": [
         "gemini_paper.pdf#p21",
         "instructgpt.pdf#p1",
@@ -442,18 +497,414 @@
       ]
     },
     {
+      "mode": "dense_openai",
+      "question_id": "q01",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.5083764999999403,
+      "retrieved": [
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p10",
+        "attention_paper.pdf#p2",
+        "attention_paper.pdf#p9"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q02",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.4296217920000345,
+      "retrieved": [
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p1",
+        "attention_paper.pdf#p9",
+        "attention_paper.pdf#p2"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q03",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.3351178749999235,
+      "retrieved": [
+        "attention_paper.pdf#p4",
+        "attention_paper.pdf#p5",
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p1",
+        "attention_paper.pdf#p9"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q04",
+      "category": "factual",
+      "hit": 0.0,
+      "rr": 0.0,
+      "retrieval_latency_s": 1.5612849159997495,
+      "retrieved": [
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p2",
+        "attention_paper.pdf#p1",
+        "attention_paper.pdf#p10",
+        "attention_paper.pdf#p5"
+      ],
+      "relevance": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q05",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.7093222500002412,
+      "retrieved": [
+        "attention_paper.pdf#p8",
+        "attention_paper.pdf#p9",
+        "attention_paper.pdf#p10",
+        "attention_paper.pdf#p1",
+        "gemini_paper.pdf#p10"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q06",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.519532541999979,
+      "retrieved": [
+        "instructgpt.pdf#p11",
+        "instructgpt.pdf#p12",
+        "instructgpt.pdf#p3",
+        "instructgpt.pdf#p2",
+        "instructgpt.pdf#p7"
+      ],
+      "relevance": [
+        true,
+        false,
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q07",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.5351292919999651,
+      "retrieved": [
+        "instructgpt.pdf#p3",
+        "instructgpt.pdf#p9",
+        "instructgpt.pdf#p15",
+        "instructgpt.pdf#p19",
+        "instructgpt.pdf#p2"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q08",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 1.0253760840000723,
+      "retrieved": [
+        "instructgpt.pdf#p15",
+        "instructgpt.pdf#p3",
+        "instructgpt.pdf#p11",
+        "instructgpt.pdf#p13",
+        "instructgpt.pdf#p14"
+      ],
+      "relevance": [
+        true,
+        false,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q09",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.4602952919999552,
+      "retrieved": [
+        "gpt4.pdf#p5",
+        "gpt4.pdf#p6",
+        "gpt4.pdf#p4",
+        "gpt4.pdf#p1",
+        "gpt4.pdf#p10"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q10",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.5213008330001685,
+      "retrieved": [
+        "gpt4.pdf#p2",
+        "gpt4.pdf#p4",
+        "gpt4.pdf#p3",
+        "gpt4.pdf#p14",
+        "gpt4.pdf#p1"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q11",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.3126067910002348,
+      "retrieved": [
+        "gpt4.pdf#p1",
+        "gpt4.pdf#p2",
+        "gpt4.pdf#p10",
+        "gpt4.pdf#p14",
+        "gpt4.pdf#p11"
+      ],
+      "relevance": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q12",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.3236166670003513,
+      "retrieved": [
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p3",
+        "mistral_paper.pdf#p6",
+        "mistral_paper.pdf#p4"
+      ],
+      "relevance": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q13",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.41071758299995054,
+      "retrieved": [
+        "mistral_paper.pdf#p2",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p3",
+        "mistral_paper.pdf#p6"
+      ],
+      "relevance": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q14",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.5528860829999758,
+      "retrieved": [
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p1",
+        "mistral_paper.pdf#p3",
+        "mistral_paper.pdf#p5",
+        "mistral_paper.pdf#p2"
+      ],
+      "relevance": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q15",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.5,
+      "retrieval_latency_s": 0.5910213749998547,
+      "retrieved": [
+        "gemini_paper.pdf#p4",
+        "gemini_paper.pdf#p1",
+        "gemini_paper.pdf#p3",
+        "gemini_paper.pdf#p39",
+        "gemini_paper.pdf#p23"
+      ],
+      "relevance": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q16",
+      "category": "factual",
+      "hit": 1.0,
+      "rr": 0.5,
+      "retrieval_latency_s": 0.47458137499961595,
+      "retrieved": [
+        "gemini_paper.pdf#p10",
+        "gemini_paper.pdf#p6",
+        "gemini_paper.pdf#p14",
+        "gemini_paper.pdf#p40",
+        "gemini_paper.pdf#p9"
+      ],
+      "relevance": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q17",
+      "category": "cross-paper",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.4966653330002373,
+      "retrieved": [
+        "instructgpt.pdf#p10",
+        "instructgpt.pdf#p5",
+        "instructgpt.pdf#p13",
+        "instructgpt.pdf#p1",
+        "gemini_paper.pdf#p11"
+      ],
+      "relevance": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q18",
+      "category": "cross-paper",
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.5416922499998691,
+      "retrieved": [
+        "instructgpt.pdf#p4",
+        "gemini_paper.pdf#p21",
+        "instructgpt.pdf#p2",
+        "instructgpt.pdf#p18",
+        "instructgpt.pdf#p1"
+      ],
+      "relevance": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ]
+    },
+    {
       "mode": "hybrid",
       "question_id": "q01",
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.6883797909977147,
+      "retrieval_latency_s": 0.6204650409999886,
       "retrieved": [
         "attention_paper.pdf#p3",
         "attention_paper.pdf#p5",
+        "attention_paper.pdf#p10",
         "attention_paper.pdf#p6",
-        "attention_paper.pdf#p8",
-        "attention_paper.pdf#p10"
+        "attention_paper.pdf#p2"
       ],
       "relevance": [
         true,
@@ -469,12 +920,12 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.6651312920002965,
+      "retrieval_latency_s": 0.49213891599993076,
       "retrieved": [
         "attention_paper.pdf#p5",
         "attention_paper.pdf#p9",
         "attention_paper.pdf#p2",
-        "attention_paper.pdf#p4",
+        "attention_paper.pdf#p1",
         "attention_paper.pdf#p7"
       ],
       "relevance": [
@@ -491,12 +942,12 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.7737452080000367,
+      "retrieval_latency_s": 0.6091730419998385,
       "retrieved": [
         "attention_paper.pdf#p4",
-        "attention_paper.pdf#p3",
         "attention_paper.pdf#p5",
-        "attention_paper.pdf#p6",
+        "attention_paper.pdf#p3",
+        "attention_paper.pdf#p1",
         "attention_paper.pdf#p9"
       ],
       "relevance": [
@@ -511,20 +962,20 @@
       "mode": "hybrid",
       "question_id": "q04",
       "category": "factual",
-      "hit": 1.0,
-      "rr": 0.3333333333333333,
-      "retrieval_latency_s": 1.6192136249992473,
+      "hit": 0.0,
+      "rr": 0.0,
+      "retrieval_latency_s": 0.386555208000118,
       "retrieved": [
-        "mistral_paper.pdf#p3",
-        "attention_paper.pdf#p3",
-        "attention_paper.pdf#p6",
         "attention_paper.pdf#p5",
-        "gemini_paper.pdf#p11"
+        "attention_paper.pdf#p3",
+        "mistral_paper.pdf#p2",
+        "attention_paper.pdf#p1",
+        "attention_paper.pdf#p2"
       ],
       "relevance": [
         false,
         false,
-        true,
+        false,
         false,
         false
       ]
@@ -535,19 +986,19 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.592914541997743,
+      "retrieval_latency_s": 0.4326200420000532,
       "retrieved": [
         "attention_paper.pdf#p8",
-        "attention_paper.pdf#p10",
-        "gemini_paper.pdf#p10",
+        "attention_paper.pdf#p9",
         "attention_paper.pdf#p1",
-        "attention_paper.pdf#p9"
+        "attention_paper.pdf#p10",
+        "gemini_paper.pdf#p10"
       ],
       "relevance": [
         true,
         false,
-        false,
         true,
+        false,
         false
       ]
     },
@@ -557,18 +1008,18 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 2.1329398749985558,
+      "retrieval_latency_s": 0.3419431249999434,
       "retrieved": [
         "instructgpt.pdf#p11",
         "instructgpt.pdf#p12",
-        "instructgpt.pdf#p4",
+        "instructgpt.pdf#p2",
         "instructgpt.pdf#p3",
-        "instructgpt.pdf#p2"
+        "instructgpt.pdf#p13"
       ],
       "relevance": [
         true,
         false,
-        false,
+        true,
         true,
         true
       ]
@@ -579,20 +1030,20 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.562831749997713,
+      "retrieval_latency_s": 0.37458879199994044,
       "retrieved": [
         "instructgpt.pdf#p3",
+        "instructgpt.pdf#p19",
         "instructgpt.pdf#p4",
-        "instructgpt.pdf#p7",
         "instructgpt.pdf#p2",
-        "instructgpt.pdf#p19"
+        "instructgpt.pdf#p15"
       ],
       "relevance": [
         true,
-        false,
+        true,
         false,
         true,
-        true
+        false
       ]
     },
     {
@@ -601,20 +1052,20 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.5795650829968508,
+      "retrieval_latency_s": 0.4053742919995784,
       "retrieved": [
-        "instructgpt.pdf#p2",
+        "instructgpt.pdf#p15",
         "instructgpt.pdf#p13",
-        "instructgpt.pdf#p12",
-        "instructgpt.pdf#p4",
-        "instructgpt.pdf#p11"
+        "instructgpt.pdf#p2",
+        "instructgpt.pdf#p11",
+        "instructgpt.pdf#p3"
       ],
       "relevance": [
         true,
         true,
         true,
         true,
-        true
+        false
       ]
     },
     {
@@ -623,20 +1074,20 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.684677000001102,
+      "retrieval_latency_s": 0.3348230420001528,
       "retrieved": [
-        "gpt4.pdf#p1",
         "gpt4.pdf#p6",
-        "gpt4.pdf#p10",
+        "gpt4.pdf#p5",
+        "gpt4.pdf#p1",
         "gpt4.pdf#p4",
-        "gpt4.pdf#p5"
+        "gpt4.pdf#p10"
       ],
       "relevance": [
         true,
         true,
+        true,
         false,
-        false,
-        true
+        false
       ]
     },
     {
@@ -645,18 +1096,18 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.6082849170015834,
+      "retrieval_latency_s": 0.43276012500018624,
       "retrieved": [
         "gpt4.pdf#p2",
+        "gpt4.pdf#p4",
         "gpt4.pdf#p14",
         "gpt4.pdf#p1",
-        "gpt4.pdf#p4",
-        "gpt4.pdf#p10"
+        "gpt4.pdf#p6"
       ],
       "relevance": [
         true,
-        true,
         false,
+        true,
         false,
         false
       ]
@@ -666,18 +1117,18 @@
       "question_id": "q11",
       "category": "factual",
       "hit": 1.0,
-      "rr": 0.5,
-      "retrieval_latency_s": 2.227349500000855,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.36744224999984,
       "retrieved": [
+        "gpt4.pdf#p1",
         "gpt4.pdf#p2",
         "gpt4.pdf#p10",
-        "gpt4.pdf#p1",
-        "gpt4.pdf#p9",
-        "gpt4.pdf#p14"
+        "gpt4.pdf#p4",
+        "gpt4.pdf#p6"
       ],
       "relevance": [
-        false,
         true,
+        false,
         true,
         false,
         false
@@ -689,13 +1140,13 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.951218541002163,
+      "retrieval_latency_s": 0.44042045800006235,
       "retrieved": [
         "mistral_paper.pdf#p2",
         "mistral_paper.pdf#p1",
-        "mistral_paper.pdf#p4",
-        "mistral_paper.pdf#p5",
-        "mistral_paper.pdf#p3"
+        "mistral_paper.pdf#p3",
+        "mistral_paper.pdf#p6",
+        "mistral_paper.pdf#p4"
       ],
       "relevance": [
         true,
@@ -711,13 +1162,13 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 2.196068582998123,
+      "retrieval_latency_s": 0.3393107920001057,
       "retrieved": [
         "mistral_paper.pdf#p2",
-        "mistral_paper.pdf#p4",
         "mistral_paper.pdf#p1",
         "mistral_paper.pdf#p3",
-        "mistral_paper.pdf#p5"
+        "mistral_paper.pdf#p4",
+        "mistral_paper.pdf#p6"
       ],
       "relevance": [
         true,
@@ -733,13 +1184,13 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.641818708001665,
+      "retrieval_latency_s": 0.42642641599968556,
       "retrieved": [
         "mistral_paper.pdf#p4",
-        "mistral_paper.pdf#p5",
+        "mistral_paper.pdf#p3",
         "mistral_paper.pdf#p1",
-        "mistral_paper.pdf#p2",
-        "mistral_paper.pdf#p6"
+        "mistral_paper.pdf#p5",
+        "mistral_paper.pdf#p2"
       ],
       "relevance": [
         true,
@@ -754,18 +1205,18 @@
       "question_id": "q15",
       "category": "factual",
       "hit": 1.0,
-      "rr": 0.5,
-      "retrieval_latency_s": 1.5648647910020372,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.3590325000000121,
       "retrieved": [
-        "gemini_paper.pdf#p4",
         "gemini_paper.pdf#p1",
-        "gemini_paper.pdf#p3",
+        "gemini_paper.pdf#p4",
         "gemini_paper.pdf#p2",
-        "gemini_paper.pdf#p17"
+        "gemini_paper.pdf#p3",
+        "gemini_paper.pdf#p8"
       ],
       "relevance": [
-        false,
         true,
+        false,
         false,
         false,
         false
@@ -775,18 +1226,18 @@
       "mode": "hybrid",
       "question_id": "q16",
       "category": "factual",
-      "hit": 0.0,
-      "rr": 0.0,
-      "retrieval_latency_s": 1.504695042000094,
+      "hit": 1.0,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.3959389159999773,
       "retrieved": [
-        "gemini_paper.pdf#p40",
-        "gemini_paper.pdf#p7",
+        "gemini_paper.pdf#p6",
         "gemini_paper.pdf#p10",
-        "gemini_paper.pdf#p2",
-        "gemini_paper.pdf#p14"
+        "gemini_paper.pdf#p40",
+        "gemini_paper.pdf#p9",
+        "gemini_paper.pdf#p7"
       ],
       "relevance": [
-        false,
+        true,
         false,
         false,
         false,
@@ -799,13 +1250,13 @@
       "category": "cross-paper",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.6244124580007337,
+      "retrieval_latency_s": 0.7785607089999758,
       "retrieved": [
         "instructgpt.pdf#p10",
         "instructgpt.pdf#p13",
         "instructgpt.pdf#p1",
-        "attention_paper.pdf#p12",
-        "instructgpt.pdf#p5"
+        "instructgpt.pdf#p19",
+        "instructgpt.pdf#p20"
       ],
       "relevance": [
         true,
@@ -820,21 +1271,21 @@
       "question_id": "q18",
       "category": "cross-paper",
       "hit": 1.0,
-      "rr": 0.3333333333333333,
-      "retrieval_latency_s": 1.57238920799864,
+      "rr": 1.0,
+      "retrieval_latency_s": 0.5932385000000977,
       "retrieved": [
+        "instructgpt.pdf#p4",
         "gemini_paper.pdf#p21",
         "instructgpt.pdf#p18",
-        "instructgpt.pdf#p4",
-        "instructgpt.pdf#p1",
-        "instructgpt.pdf#p20"
+        "instructgpt.pdf#p2",
+        "instructgpt.pdf#p1"
       ],
       "relevance": [
+        true,
         false,
         false,
         true,
-        true,
-        false
+        true
       ]
     },
     {
@@ -843,7 +1294,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 2.766533416001039,
+      "retrieval_latency_s": 1.5193618750004134,
       "retrieved": [
         "attention_paper.pdf#p3",
         "attention_paper.pdf#p8",
@@ -865,7 +1316,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 0.5,
-      "retrieval_latency_s": 1.8131425000028685,
+      "retrieval_latency_s": 0.7679707080001208,
       "retrieved": [
         "attention_paper.pdf#p9",
         "attention_paper.pdf#p5",
@@ -887,7 +1338,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 2.1061487500010116,
+      "retrieval_latency_s": 0.5506451249998463,
       "retrieved": [
         "attention_paper.pdf#p4",
         "attention_paper.pdf#p5",
@@ -909,7 +1360,7 @@
       "category": "factual",
       "hit": 0.0,
       "rr": 0.0,
-      "retrieval_latency_s": 2.5791892500019458,
+      "retrieval_latency_s": 0.6403304169998592,
       "retrieved": [
         "attention_paper.pdf#p3",
         "mistral_paper.pdf#p2",
@@ -931,7 +1382,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.7048042909991636,
+      "retrieval_latency_s": 0.6265484169998672,
       "retrieved": [
         "attention_paper.pdf#p8",
         "attention_paper.pdf#p1",
@@ -953,7 +1404,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.9508720000012545,
+      "retrieval_latency_s": 0.5476880830001392,
       "retrieved": [
         "instructgpt.pdf#p11",
         "instructgpt.pdf#p3",
@@ -975,13 +1426,13 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.8134554579992255,
+      "retrieval_latency_s": 1.2929461660000925,
       "retrieved": [
         "instructgpt.pdf#p3",
         "instructgpt.pdf#p7",
         "instructgpt.pdf#p4",
         "instructgpt.pdf#p19",
-        "gemini_paper.pdf#p21"
+        "instructgpt.pdf#p11"
       ],
       "relevance": [
         true,
@@ -997,7 +1448,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.9304773340008978,
+      "retrieval_latency_s": 0.6059817079999448,
       "retrieved": [
         "instructgpt.pdf#p2",
         "instructgpt.pdf#p4",
@@ -1019,7 +1470,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.936752500001603,
+      "retrieval_latency_s": 0.7018096669999068,
       "retrieved": [
         "gpt4.pdf#p1",
         "gpt4.pdf#p6",
@@ -1041,7 +1492,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 2.1810620830001426,
+      "retrieval_latency_s": 0.5497634169996672,
       "retrieved": [
         "gpt4.pdf#p2",
         "gpt4.pdf#p1",
@@ -1063,7 +1514,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 0.5,
-      "retrieval_latency_s": 1.9455254170025,
+      "retrieval_latency_s": 0.5335159999999632,
       "retrieved": [
         "gpt4.pdf#p2",
         "gpt4.pdf#p1",
@@ -1085,7 +1536,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.9203337090002606,
+      "retrieval_latency_s": 0.7705614999999852,
       "retrieved": [
         "mistral_paper.pdf#p1",
         "mistral_paper.pdf#p2",
@@ -1107,7 +1558,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 1.98175162500047,
+      "retrieval_latency_s": 0.5081946250002147,
       "retrieved": [
         "mistral_paper.pdf#p2",
         "mistral_paper.pdf#p1",
@@ -1129,7 +1580,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 2.1257456249986717,
+      "retrieval_latency_s": 0.5339302500001395,
       "retrieved": [
         "mistral_paper.pdf#p4",
         "mistral_paper.pdf#p5",
@@ -1151,12 +1602,12 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 2.184642749998602,
+      "retrieval_latency_s": 1.0150864580000416,
       "retrieved": [
         "gemini_paper.pdf#p1",
         "gemini_paper.pdf#p4",
         "gemini_paper.pdf#p3",
-        "gemini_paper.pdf#p13",
+        "gemini_paper.pdf#p9",
         "gemini_paper.pdf#p2"
       ],
       "relevance": [
@@ -1173,7 +1624,7 @@
       "category": "factual",
       "hit": 1.0,
       "rr": 0.3333333333333333,
-      "retrieval_latency_s": 1.987622624998039,
+      "retrieval_latency_s": 0.6934558329999163,
       "retrieved": [
         "gemini_paper.pdf#p40",
         "gemini_paper.pdf#p2",
@@ -1195,7 +1646,7 @@
       "category": "cross-paper",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 4.880331500000466,
+      "retrieval_latency_s": 0.8982012500000565,
       "retrieved": [
         "instructgpt.pdf#p10",
         "gpt4.pdf#p10",
@@ -1217,7 +1668,7 @@
       "category": "cross-paper",
       "hit": 1.0,
       "rr": 1.0,
-      "retrieval_latency_s": 4.720800209001027,
+      "retrieval_latency_s": 0.7386742499998036,
       "retrieved": [
         "instructgpt.pdf#p1",
         "gemini_paper.pdf#p21",
@@ -1234,5 +1685,1122 @@
       ]
     }
   ],
-  "generation": []
+  "generation": [
+    {
+      "mode": "dense_oss",
+      "question_id": "q01",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.710921750000125,
+      "answer": "The two sub-layers in each encoder layer of the Transformer are a multi-head self-attention mechanism and a position-wise fully connected feed-forward network [Attention Is All You Need, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q02",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.924115416999939,
+      "answer": "The base Transformer uses 8 parallel attention heads [Attention Is All You Need, p. 5].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q03",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 4.334155792000274,
+      "answer": "The dot products are scaled by the square root of the key dimension (\u221adk) to counteract the effect of large dot products that can push the softmax function into regions where it has extremely small gradients. This scaling helps maintain the stability of the gradients during training, especially for large values of dk [1, p. 4].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q04",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.460499458999948,
+      "answer": "The Transformer injects information about the relative or absolute position of the tokens in the sequence by adding \"positional encodings\" to the input embeddings at the bottoms of the encoder and decoder stacks. These positional encodings have the same dimension as the embeddings, allowing them to be summed. The authors use sine and cosine functions of different frequencies for the positional encodings, which are designed to help the model learn to attend by relative positions. They also experimented with learned positional embeddings and found that both versions produced nearly identical results, but chose the sinusoidal version for its potential to allow the model to extrapolate to longer sequence lengths than those encountered during training [Attention Is All You Need, p. 5].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q05",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 4.751555291999921,
+      "answer": "The big Transformer achieved a BLEU score of 28.4 on the WMT 2014 English-to-German translation task [Attention Is All You Need, p. 8].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q06",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.7706880000000638,
+      "answer": "Labelers preferred outputs from the 1.3B parameter InstructGPT model over outputs from the 175B GPT-3, despite the InstructGPT model having over 100x fewer parameters [Training language models to follow instructions with human feedback, p. 5].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q07",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.862336832999972,
+      "answer": "The steps of the RLHF method used to train InstructGPT are: (1) supervised fine-tuning (SFT), (2) reward model (RM) training, and (3) reinforcement learning via proximal policy optimization (PPO) on this reward model [Training language models to follow instructions with human feedback, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q08",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.9252912080000897,
+      "answer": "The PPO-ptx variant in InstructGPT is a model that incorporates updates on the pretraining mix during the Proximal Policy Optimization (PPO) process. This approach aims to reduce performance regressions on certain tasks while maintaining labeler preference scores. It is noted that the PPO-ptx model performs slightly worse at larger model sizes compared to other models, but it is still part of the InstructGPT framework that seeks to align language models with user instructions [Paper Title, p. 5].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q09",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 4.198531291999643,
+      "answer": "GPT-4 passed a simulated version of the Uniform Bar Examination with a score in the top 10% of test takers [1, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q10",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 4.507332916999985,
+      "answer": "The GPT-4 report states that a large focus of the project was building a deep learning stack that scales predictably. This was important because extensive model-specific tuning is not feasible for very large training runs like GPT-4. To address this, the team developed infrastructure and optimization methods that exhibit predictable behavior across multiple scales. These improvements allowed for reliable predictions of some aspects of GPT-4's performance based on smaller models trained with significantly less compute, specifically between 1,000\u00d7 to 10,000\u00d7 less compute. The report also mentions that the final loss of properly-trained large language models is thought to be well approximated by power laws in the amount of compute used to train the model, and they successfully predicted GPT-4's final loss using this scaling law approach [GPT-4 Technical Report, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q11",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 4.006266250000408,
+      "answer": "The technical report describes several limitations of GPT-4, including:\n\n1. It is not fully reliable and can \"hallucinate\" facts and make reasoning errors [1, p. 10].\n2. GPT-4 lacks knowledge of events that occurred after its pre-training data cutoff in September 2021 [1, p. 10].\n3. It can make simple reasoning errors and may be overly gullible in accepting false statements from users [1, p. 10].\n4. The model can fail at hard problems, similar to human errors, such as introducing security vulnerabilities into code it produces [1, p. 10].\n5. GPT-4 can be confidently wrong in its predictions and does not double-check its work when likely to make a mistake [1, p. 10].\n6. Despite improvements, it still has similar limitations as earlier GPT models, such as a limited context window and not learning from experience [5, p. 1].",
+      "n_citations": 6,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q12",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.9462081249998846,
+      "answer": "Mistral 7B uses grouped-query attention (GQA) and sliding window attention (SWA) to speed up inference. GQA significantly accelerates the inference speed and reduces memory requirements during decoding, while SWA effectively handles longer sequences at a reduced computational cost [2, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q13",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.8739223750003475,
+      "answer": "The sliding window size in Mistral 7B is W = 4096 [Mistral 7B, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q14",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.2603153750001184,
+      "answer": "Mistral 7B significantly outperforms Llama 2 13B across all evaluated benchmarks, including reasoning, mathematics, and code generation. It also approaches the coding performance of Code-Llama 7B without sacrificing performance on non-code benchmarks. In terms of instruction fine-tuning, Mistral 7B \u2013 Instruct surpasses Llama 2 13B \u2013 Chat model on both human and automated benchmarks [1, p. 4; 4, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q15",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.6551461249996464,
+      "answer": "The Gemini family consists of three model sizes: Ultra, Pro, and Nano [Gemini: A Family of Highly Capable Multimodal Models, p. 4].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q16",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.9362415830000828,
+      "answer": "Gemini Ultra surpassed human-expert performance on the MMLU benchmark, scoring 90.0%, which has been a defacto measure of progress for LLMs since it was first released in 2020 [Gemini: A Family of Highly Capable Multimodal Models, p. 40].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q17",
+      "category": "cross-paper",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.739094541000213,
+      "answer": "The papers that discuss hallucination or truthfulness of language models are:\n\n1. The first paper discusses measuring truthfulness in generative models, specifically evaluating the model's tendency to make up information on closed domain tasks and using the TruthfulQA dataset to assess truthfulness [Training language models to follow instructions with human feedback, p. 10].\n\n2. The second paper focuses on factuality, which includes aspects such as closed-book factuality, attribution, and hedging to avoid hallucination. It evaluates the models' performance in these areas through human annotators [Gemini: A Family of Highly Capable Multimodal Models, p. 11].\n\n3. The third paper mentions that GPT-4 has similar limitations as earlier models, including hallucinations, and discusses improvements in reducing hallucinations compared to previous versions [GPT-4 Technical Report, p. 10].",
+      "n_citations": 3,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q18",
+      "category": "cross-paper",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 4.08132116600018,
+      "answer": "Both papers describe training with human feedback or preferences:\n\n1. The first paper, \"Gemini: A Family of Highly Capable Multimodal Models,\" discusses the collection of Feedback Data from human raters to train reward models (RMs) that align with human preferences, and the application of reinforcement learning from human feedback (RLHF) to improve model performance [Gemini: A Family of Highly Capable Multimodal Models, p. 21].\n\n2. The second paper, \"Training language models to follow instructions with human feedback,\" details the process of fine-tuning language models using human feedback, including the collection of labeler demonstrations and rankings of model outputs to align the models with user intent [Training language models to follow instructions with human feedback, p. 1].",
+      "n_citations": 2,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q19",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.3588967079999748,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q20",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.3600287919998664,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "dense_oss",
+      "question_id": "q21",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.2962642080001388,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q01",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.6478822090002723,
+      "answer": "The two sub-layers in each encoder layer of the Transformer are a multi-head self-attention mechanism and a position-wise fully connected feed-forward network [Attention Is All You Need, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q02",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.0697669999999562,
+      "answer": "The base Transformer uses 8 parallel attention heads [Attention Is All You Need, p. 5].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q03",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.6973868329996549,
+      "answer": "The dot products are scaled by the square root of the key dimension (\u221adk) to counteract the effect of large dot products that can push the softmax function into regions where it has extremely small gradients. This scaling helps maintain the stability of the gradients during training, especially for large values of dk [1, p. 4].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q04",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.1050804169999537,
+      "answer": "The Transformer injects information about token position through learned embeddings and a parameter-free position representation. Specifically, it uses a method to add positional encodings to the input embeddings, allowing the model to take into account the order of tokens in the sequence. This is crucial because the self-attention mechanism itself does not inherently capture the sequential nature of the data [2, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 0.5,
+      "faithfulness": 0.5
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q05",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.3023314160000155,
+      "answer": "The big Transformer reached a BLEU score of 28.4 on the WMT 2014 English-to-German translation task [Attention Is All You Need, p. 8].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q06",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.5024581249999756,
+      "answer": "Labelers preferred outputs from the 1.3B parameter InstructGPT model over outputs from the 175B GPT-3, despite the InstructGPT model having over 100x fewer parameters [Training language models to follow instructions with human feedback, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q07",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.1982461249999687,
+      "answer": "The steps of the RLHF method used to train InstructGPT are as follows: (1) supervised fine-tuning (SFT), (2) reward model (RM) training, and (3) reinforcement learning via proximal policy optimization (PPO) on the reward model [Training language models to follow instructions with human feedback, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q08",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.0925576670001647,
+      "answer": "The PPO-ptx variant in InstructGPT refers to a model that incorporates pretraining updates during the reinforcement learning fine-tuning process. This approach aims to mitigate performance regressions observed in the standard PPO fine-tuning on various datasets. The results indicate that mixing in pretraining updates performs better than simply increasing the KL coefficient, which leads to significant decreases in validation reward and does not fully recover performance on certain datasets like DROP and SQuAD [Training language models to follow instructions with human feedback, p. 15].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q09",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.1732956669998202,
+      "answer": "GPT-4 achieved a score that falls in the top 10% of test takers on the simulated bar exam [GPT-4 Technical Report, p. 4].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q10",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.6789008749997265,
+      "answer": "The GPT-4 report states that a large focus of the project was building a deep learning stack that scales predictably. This was important because extensive model-specific tuning is not feasible for very large training runs like GPT-4. To address this, the team developed infrastructure and optimization methods that exhibit predictable behavior across multiple scales. These improvements allowed them to reliably predict some aspects of GPT-4\u2019s performance based on smaller models trained using 1,000\u00d7 \u2013 10,000\u00d7 less compute. They also found that the final loss of properly-trained large language models can be well approximated by power laws in the amount of compute used for training, which they verified by predicting GPT-4\u2019s final loss with high accuracy using a fitted scaling law [GPT-4 Technical Report, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q11",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.168239083000117,
+      "answer": "The technical report describes several limitations of GPT-4, including:\n\n1. It is not fully reliable and can \"hallucinate\" facts and make reasoning errors, necessitating care in its use, especially in high-stakes contexts [3, p. 10].\n2. GPT-4 has a limited context window and does not learn from experience [1, p. 1].\n3. It can sometimes make simple reasoning errors and be overly gullible in accepting false statements [3, p. 10].\n4. The model's performance can occasionally worsen with scale, and it may fail at hard problems similarly to humans [2, p. 2].\n5. GPT-4 has various biases in its outputs, which the developers are working to correct [5, p. 11]. \n\nOverall, while GPT-4 shows significant improvements over previous models, it still shares many limitations with earlier versions.",
+      "n_citations": 5,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q12",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.5337152920001245,
+      "answer": "Mistral 7B uses grouped-query attention (GQA) and sliding window attention (SWA) to speed up inference. GQA significantly accelerates the inference speed and reduces memory requirements during decoding, while SWA effectively handles longer sequences at a reduced computational cost [2, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q13",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.212707749999936,
+      "answer": "The sliding window size in Mistral 7B is W = 4096 [Mistral 7B, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q14",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.8933477089999542,
+      "answer": "Mistral 7B significantly outperforms Llama 2 13B across all evaluated benchmarks, including mathematics, code generation, and reasoning tasks. It also approaches the coding performance of Code-Llama 7B without sacrificing performance on non-code benchmarks. In terms of specific metrics, Mistral 7B achieves higher scores in various tasks compared to Llama 2 13B, demonstrating superior performance overall [1, p. 4; 2, p. 1; 3, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q15",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.5674443329999121,
+      "answer": "The Gemini family consists of three model sizes: Ultra, Pro, and Nano [Gemini: A Family of Highly Capable Multimodal Models, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q16",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.916596875000323,
+      "answer": "Gemini Ultra achieved an accuracy of 90.04% on the MMLU benchmark, surpassing human expert performance, which was gauged at 89.8% by the benchmark authors. This made Gemini Ultra the first model to exceed the previous state-of-the-art result of 86.4% [Gemini: A Family of Highly Capable Multimodal Models, p. 6].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q17",
+      "category": "cross-paper",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.751917582999795,
+      "answer": "The papers that discuss hallucination or truthfulness of language models are:\n\n1. The first paper mentions measuring truthfulness by evaluating the model's tendency to make up information on closed domain tasks (hallucinations) and using the TruthfulQA dataset to assess truthfulness [Training language models to follow instructions with human feedback, p. 10].\n\n2. The third paper states that InstructGPT models show improvements in truthfulness over GPT-3, indicating that their models hallucinate less often on closed-domain tasks [Training language models to follow instructions with human feedback, p. 13].\n\n3. The fourth paper discusses the unintended behaviors of language models, including making up facts, which relates to the concept of hallucination [Training language models to follow instructions with human feedback, p. 1].\n\nThus, all four papers address aspects of hallucination or truthfulness in language models.",
+      "n_citations": 3,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 0.5,
+      "faithfulness": 0.8
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q18",
+      "category": "cross-paper",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.555560124999829,
+      "answer": "The papers that describe training with human feedback or preferences are:\n\n1. \"Training language models to follow instructions with human feedback\" discusses the use of human feedback to fine-tune language models, specifically through reinforcement learning from human feedback (RLHF) and the collection of datasets from labelers to align model behavior with user intent [Training language models to follow instructions with human feedback, p. 1].\n\n2. \"Gemini: A Family of Highly Capable Multimodal Models\" outlines the process of collecting feedback data from human raters to train reward models that align with human preferences, and it emphasizes the iterative process of reinforcement learning from human feedback to improve model performance [Gemini: A Family of Highly Capable Multimodal Models, p. 21].",
+      "n_citations": 2,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q19",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.5411153750001176,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q20",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.1287905829999545,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "dense_openai",
+      "question_id": "q21",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.0238627079997968,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q01",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.503369333000137,
+      "answer": "The two sub-layers in each encoder layer of the Transformer are a multi-head self-attention mechanism and a position-wise fully connected feed-forward network [Attention Is All You Need, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q02",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.2632224590001897,
+      "answer": "The base Transformer uses 8 parallel attention heads [Attention Is All You Need, p. 5].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q03",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.537162958999943,
+      "answer": "The dot products are scaled by the square root of the key dimension (\u221adk) to counteract the effect of large dot products that can push the softmax function into regions where it has extremely small gradients. This scaling helps maintain the stability of the gradients during training [1, p. 4].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q04",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.6512012909997793,
+      "answer": "The Transformer injects information about token position through the use of positional encodings. These encodings are added to the input embeddings to provide the model with information about the relative or absolute position of tokens in the sequence. This allows the model to take into account the order of the tokens, which is crucial for understanding the context in sequence transduction tasks [Paper Title, p. 5].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q05",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.4930105830003413,
+      "answer": "The big Transformer reached a BLEU score of 28.4 on the WMT 2014 English-to-German translation task [1, p. 8].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q06",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.7445371670000895,
+      "answer": "Labelers preferred outputs from the 1.3B parameter InstructGPT model over outputs from the 175B GPT-3, despite the InstructGPT model having over 100x fewer parameters [Training language models to follow instructions with human feedback, p. 4].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q07",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.146782875000099,
+      "answer": "The steps of the RLHF method used to train InstructGPT are as follows: (1) supervised fine-tuning (SFT), (2) reward model (RM) training, and (3) reinforcement learning via proximal policy optimization (PPO) on the reward model [Training language models to follow instructions with human feedback, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q08",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.9654953330000353,
+      "answer": "The PPO-ptx variant in InstructGPT refers to a model that incorporates pretraining updates during the reinforcement learning fine-tuning process. This approach aims to mitigate performance regressions observed in the models when compared to GPT-3 on various datasets. The PPO-ptx model is noted to perform better than the standard PPO model, particularly in reversing performance regressions on certain tasks, while still lagging behind GPT-3 on others like DROP and SQuAD [Training language models to follow instructions with human feedback, p. 15].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 0.8,
+      "faithfulness": 0.9
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q09",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.2261439170001722,
+      "answer": "GPT-4 achieved a score around the top 10% of test takers on the simulated bar exam [GPT-4 Technical Report, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q10",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.4949577500001396,
+      "answer": "The GPT-4 report states that a large focus of the project was building a deep learning stack that scales predictably. This was important because extensive model-specific tuning is not feasible for very large training runs like GPT-4. To address this, the team developed infrastructure and optimization methods that exhibit predictable behavior across multiple scales. These improvements allowed them to reliably predict some aspects of GPT-4's performance based on smaller models trained using 1,000\u00d7 \u2013 10,000\u00d7 less compute. They also found that the final loss of properly-trained large language models can be approximated by power laws in the amount of compute used for training, and they successfully predicted GPT-4's final loss with high accuracy using this scaling law approach [GPT-4 Technical Report, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q11",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.3850684169997294,
+      "answer": "The technical report describes several limitations of GPT-4, including:\n\n1. It is not fully reliable and can \"hallucinate\" facts and make reasoning errors, necessitating caution in high-stakes contexts [3, p. 10].\n2. GPT-4 has a limited context window and does not learn from experience [1, p. 1].\n3. It can sometimes make simple reasoning errors and be overly gullible in accepting false statements [3, p. 10].\n4. The model's performance can occasionally worsen with scale for individual problems [4, p. 4].\n5. GPT-4 lacks knowledge of events that occurred after its pre-training data cutoff in September 2021 [3, p. 10].\n6. It can confidently provide incorrect predictions without double-checking its work [3, p. 10]. \n\nOverall, while GPT-4 shows improvements over previous models, it still shares similar limitations with earlier versions.",
+      "n_citations": 6,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q12",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.9589178340002036,
+      "answer": "Mistral 7B uses grouped-query attention (GQA) and sliding window attention (SWA) to speed up inference. GQA significantly accelerates the inference speed and reduces memory requirements during decoding, while SWA effectively handles longer sequences at a reduced computational cost [2, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q13",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.4685687080000207,
+      "answer": "The sliding window size in Mistral 7B is W = 4096 [Mistral 7B, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q14",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.064058500000101,
+      "answer": "Mistral 7B significantly outperforms Llama 2 13B across all evaluated benchmarks, including mathematics, code generation, and reasoning tasks. It also approaches the coding performance of Code-Llama 7B without sacrificing performance on non-code benchmarks. In terms of specific metrics, Mistral 7B achieves higher scores in various categories compared to Llama 2 13B, demonstrating its superior performance overall [Mistral 7B, p. 4].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q15",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.0933907500002533,
+      "answer": "The Gemini family consists of three model sizes: Ultra, Pro, and Nano. Ultra is designed for highly complex tasks, Pro is performance-optimized for cost and latency, and Nano is the most efficient model designed for on-device applications, with two versions having 1.8B and 3.25B parameters respectively [Gemini: A Family of Highly Capable Multimodal Models, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q16",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.0485768749999806,
+      "answer": "Gemini Ultra achieved an accuracy of 90.04% on the MMLU benchmark, surpassing the previous state-of-the-art result of 86.4% and exceeding the human expert performance threshold of 89.8% [Gemini: A Family of Highly Capable Multimodal Models, p. 6].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q17",
+      "category": "cross-paper",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.1777310829997987,
+      "answer": "The discussion of hallucination and truthfulness of language models is present in the following papers:\n\n1. The paper discusses measuring truthfulness by evaluating the model's tendency to make up information on closed domain tasks (hallucinations) and using the TruthfulQA dataset to assess truthfulness [Training language models to follow instructions with human feedback, p. 10].\n\n2. The paper reports that InstructGPT models show improvements in truthfulness over GPT-3, as measured by human evaluations on the TruthfulQA dataset, and notes that the models hallucinate less often on closed-domain tasks [Training language models to follow instructions with human feedback, p. 13].\n\n3. The paper mentions that InstructGPT models still generate untruthful outputs and can make up facts, indicating that they are not fully aligned or safe [Training language models to follow instructions with human feedback, p. 19]. \n\nThus, all three passages address aspects of hallucination and truthfulness in language models.",
+      "n_citations": 3,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q18",
+      "category": "cross-paper",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.2888994579998325,
+      "answer": "The papers that describe training with human feedback or preferences are:\n\n1. \"Training language models to follow instructions with human feedback\" discusses the use of human feedback to fine-tune language models, specifically through reinforcement learning from human feedback (RLHF) and the collection of datasets from labelers [Training language models to follow instructions with human feedback, p. 1].\n\n2. \"Gemini: A Family of Highly Capable Multimodal Models\" also describes the use of human feedback in the training process, including the collection of feedback data and the application of RLHF to improve model performance [Gemini: A Family of Highly Capable Multimodal Models, p. 21].",
+      "n_citations": 2,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q19",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.1312023330001466,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q20",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.5369379159997152,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "hybrid",
+      "question_id": "q21",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.040217875000053,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q01",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.5032045419998212,
+      "answer": "The two sub-layers in each encoder layer of the Transformer are a multi-head self-attention mechanism and a simple, position-wise fully connected feed-forward network [Attention Is All You Need, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q02",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.577071665999938,
+      "answer": "The base Transformer uses 8 parallel attention heads [Attention Is All You Need, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q03",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.0500447500003247,
+      "answer": "The dot products are scaled by the square root of the key dimension (\u221adk) to counteract the effect of large dot products that can occur for large values of dk. When the dot products grow large in magnitude, they push the softmax function into regions where it has extremely small gradients, which can negatively impact the learning process. Scaling the dot products helps to mitigate this issue [1, p. 4].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q04",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.0783037920000424,
+      "answer": "The Transformer injects information about token position through the use of positional encodings. These encodings are added to the input embeddings to provide the model with information about the order of the tokens in the sequence, allowing it to take into account the position of each token when processing the input [Attention Is All You Need, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q05",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.5560672080000586,
+      "answer": "The big Transformer reached a BLEU score of 28.4 on the WMT 2014 English-to-German translation task [1, p. 8].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q06",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.9073025830002734,
+      "answer": "Labelers preferred outputs from the 1.3B parameter InstructGPT model over outputs from the 175B GPT-3, despite the InstructGPT model having over 100x fewer parameters [Training language models to follow instructions with human feedback, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q07",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.023441916000138,
+      "answer": "The steps of the RLHF method used to train InstructGPT are as follows: (1) supervised fine-tuning (SFT), (2) reward model (RM) training, and (3) reinforcement learning via proximal policy optimization (PPO) on the reward model [Training language models to follow instructions with human feedback, p. 3].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q08",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.8934769580000648,
+      "answer": "The PPO-ptx variant in InstructGPT is a model that mixes PPO updates with updates that increase the log likelihood of the pretraining distribution. This approach aims to reduce performance regressions on certain tasks without compromising labeler preference scores. It is designed to improve the model's performance on public NLP datasets while maintaining alignment with human preferences [Training language models to follow instructions with human feedback, p. 4].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q09",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.5199815000000854,
+      "answer": "GPT-4 passed a simulated version of the Uniform Bar Examination with a score in the top 10% of test takers [1, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q10",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.275072917000216,
+      "answer": "The GPT-4 report states that a large focus of the project was building a deep learning stack that scales predictably. This was important because extensive model-specific tuning is not feasible for very large training runs like GPT-4. To address this, the team developed infrastructure and optimization methods that exhibit predictable behavior across multiple scales. These improvements allowed them to reliably predict some aspects of GPT-4\u2019s performance based on smaller models trained using 1,000\u00d7 \u2013 10,000\u00d7 less compute. They also developed methodology to predict interpretable metrics of capability, such as the pass rate on the HumanEval dataset, by extrapolating from models trained with significantly less compute [1, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q11",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.380216792000283,
+      "answer": "The technical report describes several limitations of GPT-4, including:\n\n1. GPT-4 is not fully reliable and can \"hallucinate\" facts and make reasoning errors, similar to earlier GPT models [3, p. 10].\n2. It has a limited context window and does not learn from experience [2, p. 1].\n3. GPT-4 can confidently provide incorrect answers and may fail at complex problems, such as introducing security vulnerabilities in code [3, p. 10].\n4. It lacks knowledge of events that occurred after the majority of its pre-training data cutoff in September 2021 [3, p. 10].\n5. While GPT-4 reduces hallucinations compared to GPT-3.5, it still has a rate of incorrect behavior on sensitive and disallowed prompts [4, p. 14]. \n\nOverall, these limitations highlight the need for careful use of GPT-4's outputs, especially in high-stakes contexts [3, p. 10].",
+      "n_citations": 6,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q12",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.685931750000236,
+      "answer": "Mistral 7B uses grouped-query attention (GQA) and sliding window attention (SWA) to speed up inference. GQA significantly accelerates the inference speed and reduces memory requirements during decoding, while SWA is designed to handle longer sequences more effectively at a reduced computational cost [Mistral 7B, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q13",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.0468742920002114,
+      "answer": "The sliding window size in Mistral 7B is W = 4096 [Mistral 7B, p. 2].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q14",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.861461500000132,
+      "answer": "Mistral 7B significantly outperforms Llama 2 13B across all evaluated benchmarks, including mathematics, code generation, and reasoning. It approaches the coding performance of Code-Llama 7B without sacrificing performance on non-code benchmarks. In terms of instruction fine-tuning, Mistral 7B \u2013 Instruct surpasses Llama 2 13B \u2013 Chat model on both human and automated benchmarks [1, p. 4; 4, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 0.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q15",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.358872582999993,
+      "answer": "The Gemini family consists of three model sizes: Ultra, Pro, and Nano. Ultra is designed for highly complex tasks, Pro is performance-optimized for cost and latency, and Nano is the most efficient model designed for on-device applications [Gemini: A Family of Highly Capable Multimodal Models, p. 1].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q16",
+      "category": "factual",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.359246625000196,
+      "answer": "Gemini Ultra achieved a score of 90.0% on the MMLU benchmark, surpassing human-expert performance, which was gauged at 89.8% [Gemini: A Family of Highly Capable Multimodal Models, p. 40].",
+      "n_citations": 1,
+      "citation_valid": 1.0,
+      "citation_hit": 0.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q17",
+      "category": "cross-paper",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 2.722078541999963,
+      "answer": "The papers that discuss hallucination or truthfulness of language models are:\n\n1. \"Training language models to follow instructions with human feedback\" mentions hallucination rates and truthfulness improvements in InstructGPT models compared to GPT-3, specifically noting a 21% vs. 41% hallucination rate and improvements in truthfulness on the TruthfulQA benchmark [Training language models to follow instructions with human feedback, p. 4].\n\n2. \"GPT-4 Technical Report\" discusses hallucinations in GPT-4 and its improvements in factuality evaluations compared to GPT-3.5, as well as its performance on the TruthfulQA benchmark [GPT-4 Technical Report, p. 10].",
+      "n_citations": 2,
+      "citation_valid": 0.5,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q18",
+      "category": "cross-paper",
+      "abstained": false,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 3.0341538749999017,
+      "answer": "Both papers describe training with human feedback or preferences:\n\n1. The first paper discusses fine-tuning language models using human feedback to align them with user intent, specifically through a process called reinforcement learning from human feedback (RLHF) [Training language models to follow instructions with human feedback, p. 1].\n\n2. The second paper also describes the use of human feedback in training multimodal models, including the collection of feedback data and the application of RLHF to improve model outputs [Gemini: A Family of Highly Capable Multimodal Models, p. 21].",
+      "n_citations": 2,
+      "citation_valid": 1.0,
+      "citation_hit": 1.0,
+      "correctness": 1.0,
+      "faithfulness": 1.0
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q19",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.2293916670000726,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q20",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.6241789579999022,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    },
+    {
+      "mode": "hybrid_reranked",
+      "question_id": "q21",
+      "category": "unanswerable",
+      "abstained": true,
+      "abstention_correct": true,
+      "end_to_end_latency_s": 1.2614332499997545,
+      "answer": "I couldn't find enough information in the indexed research papers to answer that question."
+    }
+  ]
 }

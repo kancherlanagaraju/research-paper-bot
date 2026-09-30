@@ -6,9 +6,13 @@ capstone brief asks not just for a RAG system but for a comparison of
 approaches at each stage, so embeddings, retrieval strategy and the final
 pipeline are all treated as experiments.
 
-> Verification status: every component is unit-tested against fakes or
-> stubs. Nothing beyond the OpenAI embedding call has been run against live
-> services (Zilliz, model downloads, an LLM). See README "Live verification".
+> Verification status: the latest live evaluation exercised all four
+> retrieval modes against populated Zilliz collections, including both
+> embedding backends and the cross-encoder, and ran generation plus LLM
+> judging. The Streamlit UI has only been tested headlessly with a stubbed
+> pipeline; direct vector-store upsert/rebuild behavior is covered by fake
+> client tests rather than a separate live indexing check. See README "Live
+> evaluation and limitations".
 
 ## Data flow
 
@@ -69,13 +73,13 @@ them.
 
 | Capstone requirement | Implementation | Evidence |
 |---|---|---|
-| PDF loading & indexing | `src/ingestion.py`, `src/embeddings.py`, `src/vector_store.py`, `scripts/index_documents.py` | Unit-tested; OpenAI embedding of all 95 chunks live-verified. The Zilliz write is unverified against a real cluster. |
+| PDF loading & indexing | `src/ingestion.py`, `src/embeddings.py`, `src/vector_store.py`, `scripts/index_documents.py` | Ingestion and upsert/rebuild logic are unit-tested; live evaluation retrieved from populated Zilliz collections. A separate live indexing/upsert run was not part of that evaluation. |
 | Metadata preservation | `src/ingestion.py: ChunkRecord`, `src/vector_store.py` schema | title / filename / page / chunk_id / embedding_model / ingestion_version stored on every row (tests + manifest). |
-| Embedding comparison | `src/embeddings.py` (OSS + OpenAI), configs A vs B in `src/evaluation.py` | OpenAI backend live-verified (1536-dim). OSS backend unit-tested only (weights never downloaded). Comparison results pending a real evaluation run. |
-| Retrieval strategy comparison | `src/retrieval.py` (configs A-D) | Unit-tested. Comparison results pending a real evaluation run. |
-| RAG pipeline + LLM | `src/rag.py` (`answer_question`, OpenAI chat, temperature 0) | Unit-tested with stub LLM/retrieval (`tests/test_rag.py`). No live LLM call yet. |
+| Embedding comparison | `src/embeddings.py` (OSS + OpenAI), configs A vs B in `src/evaluation.py` | Both backends were exercised in the latest live evaluation: dense OSS MRR 0.792; dense OpenAI MRR 0.889. |
+| Retrieval strategy comparison | `src/retrieval.py` (configs A-D) | All four modes were exercised live. Hybrid (C) was selected with hit@5 0.944 and MRR 0.944; see `artifacts/evaluation/summary.md`. |
+| RAG pipeline + LLM | `src/rag.py` (`answer_question`, OpenAI chat, temperature 0) | Live generation and LLM judging ran for all four modes in the latest evaluation, in addition to unit tests with stub LLM/retrieval (`tests/test_rag.py`). |
 | Source citation (top 3) | `src/rag.py` (`RagAnswer.sources`, inline `[Title, p. N]`), `app.py` expanders | Unit-tested and headless-app-tested. |
-| Test on sample queries | `artifacts/evaluation/questions.json`, `scripts/run_evaluation.py`, `DEMO.md` | 21-question set grounded against the ingested text; harness unit-tested. Live run pending. |
+| Test on sample queries | `artifacts/evaluation/questions.json`, `scripts/run_evaluation.py`, `DEMO.md` | Live evaluation completed on 21 questions (18 answerable), with all four retrieval modes and generation/judge metrics; results are in `artifacts/evaluation/`. |
 | Stretch goal: Streamlit app | `app.py`, `src/app_support.py` | Headless `AppTest` runs with a stub pipeline (`tests/test_app.py`). |
 
 ## Evaluation design
@@ -137,12 +141,10 @@ decisions:
   needed for cosine retrieval (Milestone 3).
 - `upsert` keyed by `chunk_id` (idempotent); `--rebuild` explicitly drops
   and recreates a collection.
-- OpenAI embeddings were live-verified end-to-end against the real API.
-  Open-source embeddings (sentence-transformers) and the live Zilliz
-  connection could not be verified from the sandboxed development
-  environment (outbound network to Hugging Face's model-weight CDN and to
-  `*.cloud.zilliz.com` was blocked there) -- see README "Known limitations"
-  for the exact hosts and what's pending.
+- Both OpenAI and open-source embeddings, as well as the live Zilliz
+  retrieval connection, were exercised in the latest evaluation. Direct
+  indexing/upsert and rebuild against the live cluster were not part of that
+  run; those operations remain covered by fake-client unit tests.
 
 ## Milestone 3 notes -- dense retrieval
 

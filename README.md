@@ -9,19 +9,20 @@ for the original brief.
 
 - [x] **Milestone 1 -- Repository & dataset assessment, PDF extraction, metadata-preserving chunking, unit tests.**
 - [x] **Milestone 2 -- Embeddings (open-source + OpenAI) and Zilliz Cloud Serverless vector store, idempotent upsert, rebuild command.**
-- [x] **Milestone 3 -- Dense cosine retrieval, per embedding model (`dense_oss` / `dense_openai`), unit-tested. Not yet run against a real populated collection -- see "Open item" below.**
-- [x] **Milestone 4 -- Hybrid (dense + BM25, RRF/weighted fusion) retrieval (`hybrid`) and cross-encoder reranking (`hybrid_reranked`), unit-tested. Not yet run against a real populated collection or with real model weights -- see "Open item" below.**
-- [x] **Milestone 5 -- RAG generation (`src/rag.py`) with top-3 source citations and abstention, unit-tested with a stub LLM. No real LLM call made yet.**
-- [x] **Milestone 6 -- Evaluation harness (`src/evaluation.py`, `scripts/run_evaluation.py`): 21-question set, hit@k / MRR / latency for configs A-D, optional generation + LLM-judge metrics, automatic selection. Unit-tested with stubs; NOT yet run on real data, so no results or final selection exist yet.**
-- [x] **Milestone 7 -- Streamlit app (`app.py`): question box, answer with citations, top-3 source expanders, retrieval-mode selector, "insufficient evidence" warning, session history. Tested headless with a stubbed pipeline; not yet used against live services.**
+- [x] **Milestone 3 -- Dense cosine retrieval, per embedding model (`dense_oss` / `dense_openai`), unit-tested and exercised against the populated live collections in the latest evaluation.**
+- [x] **Milestone 4 -- Hybrid (dense + BM25, RRF/weighted fusion) retrieval (`hybrid`) and cross-encoder reranking (`hybrid_reranked`), unit-tested and exercised in the latest evaluation.**
+- [x] **Milestone 5 -- RAG generation (`src/rag.py`) with top-3 sources and abstention, unit-tested with a stub LLM and evaluated with live generation and judging.**
+- [x] **Milestone 6 -- Evaluation harness (`src/evaluation.py`, `scripts/run_evaluation.py`): 21-question set, retrieval and generation metrics for configs A-D, LLM-judge metrics, automatic selection. Latest results are in `artifacts/evaluation/`.**
+- [x] **Milestone 7 -- Streamlit app (`app.py`): question box, answer with citations, top-3 source expanders, retrieval-mode selector, "insufficient evidence" warning, session history. Tested headless with a stubbed pipeline; run the app against your services before presenting it live.**
 - [x] **Milestone 8 -- Documentation (README, `docs/architecture.md` with data-flow diagram and requirement traceability, `.env.example`, `DEMO.md`), 106 unit tests plus opt-in live smoke tests.**
 
-**Verification status:** all seven pipeline milestones are code-complete and
-unit-tested, but Milestones 3-7 are tested against fakes/stubs only. Nothing
-beyond the OpenAI embedding call has been run against live services (Zilliz,
-open-source model weights, an LLM), and no evaluation has been run, so there
-are no results and no selected configuration yet. See "Live verification"
-below for the exact steps to close that gap.
+**Verification status:** the latest evaluation completed all four retrieval
+modes with live services and included live generation and LLM judging; no
+configuration errors were recorded. The selected mode is `hybrid`, using
+OpenAI embeddings for its dense side. The Streamlit UI itself has only been
+tested headlessly with a stubbed pipeline. Citation quality is imperfect:
+the selected mode's citation-validity and citation-hit scores are both
+0.611, so inspect cited passages during the demo.
 
 Where to look: `docs/architecture.md` (diagram, retrieval configs,
 requirement traceability), `DEMO.md` (demo script), `.env.example` (all settings).
@@ -103,8 +104,8 @@ python -m pytest -v
 ```
 
 **106 unit tests pass** (28 ingestion, 11 embeddings, 12 vector store, 22
-retrieval, 12 RAG, 13 evaluation, 8 app), all against fakes or stubs. Live
-smoke tests are skipped by default and run with
+retrieval, 12 RAG, 13 evaluation, 8 app), primarily against fakes or stubs.
+Live smoke tests are skipped by default and run with
 `RUN_LIVE_TESTS=1 python -m pytest -m live -v`.
 
 Inspect things directly without the full CLI:
@@ -132,7 +133,7 @@ Key settings (see `.env.example` for all of them):
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `HYBRID_DENSE_BACKEND` | `oss` | Dense side of hybrid modes: `oss` or `openai`. Set to the evaluation winner. |
+| `HYBRID_DENSE_BACKEND` | `openai` | Dense side of hybrid modes: `oss` or `openai`; `openai` was the better dense backend in the latest evaluation. |
 | `FUSION_METHOD` | `rrf` | `rrf` or `weighted`; weights via `FUSION_WEIGHT_DENSE` / `FUSION_WEIGHT_SPARSE`. |
 | `HYBRID_CANDIDATE_K` / `RERANK_TOP_K` | `20` / `5` | Candidates per ranker before fusion or reranking / final results for mode D. |
 | `RERANKER_MODEL` | `cross-encoder/ms-marco-MiniLM-L-6-v2` | Cross-encoder for mode D. |
@@ -143,27 +144,38 @@ Key settings (see `.env.example` for all of them):
 | `INGESTION_VERSION` | `v1` | Baked into every chunk ID; bump to force new IDs on a rebuild. |
 | `TOKENIZER_BACKEND` | `approx_word` | `approx_word` (offline, deterministic) or `tiktoken` (exact GPT tokens, needs network on first use). |
 
-## Known limitations (sandbox network blocks found during development)
+## Live evaluation and limitations
 
-Development happens inside a sandboxed environment whose outbound network
-access is restricted to an allowlist of domains. This surfaced three
-specific blocks, all at the network/TLS layer (not credential problems):
+The latest `artifacts/evaluation/summary.md` records a successful evaluation
+of all four retrieval modes over 21 questions (18 answerable), with live
+generation and LLM judging and no mode errors. Retrieval results were:
 
-| Host | Needed for | Status here |
-|---|---|---|
-| `api.openai.com` | OpenAI embeddings, future LLM calls | **Reachable.** Live-tested: real API key verified (200 OK), real embeddings computed for a sample and for the full 95-chunk corpus (`text-embedding-3-small`, 1536-dim). |
-| `huggingface.co` (API/metadata) | Resolving open-source model info | Reachable. |
-| `*.cdn.hf.co` / `cas-server.xethub.hf.co` | Downloading actual model weights (e.g. `BAAI/bge-small-en-v1.5`) | **Blocked** (SSL handshake fails). The OSS embedding backend's code is complete and unit-tested with a stubbed model, but the real multi-hundred-MB weight download could not be completed here. |
-| `*.cloud.zilliz.com` | The Zilliz Cloud Serverless cluster itself | **Blocked** (SSL handshake fails). Schema/index construction was verified directly against real `pymilvus` classes (no network needed for that); upsert/rebuild orchestration is unit-tested against an in-memory fake client. The actual write to your cluster has not been verified end-to-end. |
-| `openaipublic.blob.core.windows.net` | `tiktoken`'s vocabulary file | Blocked (this is why `TOKENIZER_BACKEND` defaults to the offline `approx_word` tokenizer -- see Milestone 1 notes). |
+| Configuration | hit@5 | MRR | Mean retrieval latency |
+|---|---:|---:|---:|
+| A (OSS dense) | 0.944 | 0.792 | 3.172 s |
+| B (OpenAI dense) | 0.944 | 0.889 | 0.573 s |
+| C (hybrid) | 0.944 | 0.944 | 0.452 s |
+| D (hybrid + rerank) | 0.944 | 0.852 | 0.750 s |
 
-**What this means practically:** `python scripts/index_documents.py` (with
-`--embedding-backend openai`) ran the full pipeline through embedding
-successfully here, then failed at the Zilliz connection step with a clean,
-caught error (not a crash) -- confirmed by an actual run. To finish
-verifying Milestone 2 end-to-end, run that same command yourself (or from
-any machine with normal internet access to Hugging Face and Zilliz Cloud)
-and share the output; I'll fix anything that comes up.
+The selection rule chooses the highest MRR, then hit@k, then lowest latency.
+It selected **C (`hybrid`)**, with the hybrid dense backend set to **OpenAI**.
+Generation abstention accuracy was 1.000 for each mode. For the selected
+mode, citation validity and citation hit were both 0.611: citations are not
+fully reliable and should be checked against the displayed source passages.
+The evaluation set is small and uses phrase-based relevance labels; LLM-judge
+scores are approximate rather than human-verified.
+
+To reproduce the evaluation with your own configured services:
+
+```bash
+python scripts/run_evaluation.py --with-generation --judge
+```
+
+The initial development environment had network restrictions that prevented
+some live checks. The later successful evaluation verifies the live
+retrieval, generation, and judge paths represented by its results. The
+Streamlit application has only been tested headlessly with a stubbed
+pipeline, so launch it and verify it against your services before presenting.
 
 ## Key design decisions (Milestone 2)
 
@@ -180,8 +192,9 @@ and share the output; I'll fix anything that comes up.
 - **Upsert, not insert**, keyed by the same deterministic `chunk_id` from
   Milestone 1. Re-running indexing on unchanged files overwrites the same
   rows rather than duplicating them -- verified in `tests/test_vector_store.py`
-  against a fake client (real-cluster verification still pending, see
-  "Known limitations").
+  against a fake client. The latest live evaluation retrieved from populated
+  Zilliz collections, but did not separately exercise indexing/upsert or
+  rebuild against the live cluster.
 - **`--rebuild` is opt-in and explicit** (drops + recreates the collection);
   the default behavior only creates a collection if it doesn't already
   exist, and otherwise upserts into what's there.
@@ -222,13 +235,11 @@ and share the output; I'll fix anything that comes up.
 1. Per-page chunking (never spans a page boundary) -- confirmed.
 2. `approx_word` as the default tokenizer (offline/reproducible) -- confirmed.
 3. Proceed with Milestone 2 by building against a mocked vector-store client
-   here, with real-cluster verification deferred to an environment with
-   network access to Zilliz -- confirmed.
+   here -- confirmed. The later live evaluation verified retrieval from
+   populated Zilliz collections; direct indexing/upsert and rebuild against
+   the live cluster remain unverified.
 
-## Live verification (the remaining open item)
-
-Everything below the OpenAI embedding call has only been exercised against
-fakes. To verify for real, from a machine with normal internet access:
+## Live smoke tests
 
 ```bash
 python scripts/index_documents.py --embedding-backend both   # ingest, embed, upsert both collections
@@ -238,11 +249,9 @@ python scripts/run_evaluation.py --with-generation --judge   # the real comparis
 streamlit run app.py
 ```
 
-What could still fail, and where: the Zilliz write and the BM25 corpus fetch
-(`client.query` with a `chunk_id != ""` filter and pagination) have only run
-against a fake client; the open-source embedding and cross-encoder weights
-have never been downloaded; the LLM has never been called, so citation
-format and abstention behaviour are untested against a real model.
+The evaluation artifacts document a successful live comparison. Run the
+opt-in smoke-test command above as a separate check when setting up another
+environment; its tests are skipped by default.
 
 ## Project structure
 
@@ -259,7 +268,7 @@ app.py                Streamlit app
 scripts/index_documents.py   Ingest -> embed -> upsert CLI
 scripts/run_evaluation.py    Evaluation CLI
 tests/                106 unit tests + tests/test_live.py (opt-in live smoke tests)
-artifacts/            ingestion_manifest.json; evaluation/questions.json (results appear after a run)
+artifacts/            ingestion_manifest.json; evaluation question set and latest results
 docs/architecture.md  Data-flow diagram, retrieval configs, requirement traceability
 DEMO.md               Demo walkthrough and sample questions
 .env.example          Every setting, documented
